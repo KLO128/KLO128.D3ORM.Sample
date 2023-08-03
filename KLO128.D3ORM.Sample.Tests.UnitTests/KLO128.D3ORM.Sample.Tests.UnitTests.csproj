@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Mocks\MySQLQueries_Obsolete.cs" />
+    <Compile Remove="Mocks\MySQLQueries_Obsolete_Obsolete.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.11.0" />
+    <PackageReference Include="MSTest.TestAdapter" Version="2.2.7" />
+    <PackageReference Include="MSTest.TestFramework" Version="2.2.7" />
+    <PackageReference Include="coverlet.collector" Version="3.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\KLO128.D3ORM.Sample.Application.Web\KLO128.D3ORM.Sample.Application.Web.csproj" />
+    <ProjectReference Include="..\KLO128.D3ORM.Sample.Domain\KLO128.D3ORM.Sample.Domain.csproj" />
+    <ProjectReference Include="..\KLO128.D3ORM.Sample.Infra.D3ORM.MSSQL\KLO128.D3ORM.Sample.Infra.D3ORM.MSSQL.csproj" />
+    <ProjectReference Include="..\KLO128.D3ORM.Sample.Infra.D3ORM.MySQL\KLO128.D3ORM.Sample.Infra.D3ORM.MySQL.csproj" />
+    <ProjectReference Include="..\KLO128.D3ORM.Sample.Infra.D3ORM.SQLite\KLO128.D3ORM.Sample.Infra.D3ORM.SQLite.csproj" />
+    <ProjectReference Include="..\KLO128.D3ORM.Sample.Infra.D3ORM\KLO128.D3ORM.Sample.Infra.D3ORM.csproj" />
+    <ProjectReference Include="..\KLO128.D3ORM.Sample.Tests\KLO128.D3ORM.Sample.Tests.csproj" />
+  </ItemGroup>
+
+</Project>

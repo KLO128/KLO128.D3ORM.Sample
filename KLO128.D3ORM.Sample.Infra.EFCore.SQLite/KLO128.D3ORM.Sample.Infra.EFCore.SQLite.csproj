@@ -1,0 +1,57 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="6.0.14" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Db\gen\EntitiesFromEFCore-SQLiteFix.txt">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>EntitiesFromEFCore-SQLiteFix.tt</DependentUpon>
+    </None>
+    <None Update="Db\gen\EntitiesFromEFCore.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>EntitiesFromEFCore.txt</LastGenOutput>
+    </None>
+    <None Update="Db\gen\EntitiesFromEFCore.txt">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>EntitiesFromEFCore.tt</DependentUpon>
+    </None>
+    <None Update="Db\gen\EntitiesFromEFCore-SQLiteFix.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>EntitiesFromEFCore-SQLiteFix.txt</LastGenOutput>
+    </None>
+    <None Update="Db\gen\Repositories-Ifaces.tt">
+      <LastGenOutput>Repositories-Ifaces.txt</LastGenOutput>
+      <Generator>TextTemplatingFileGenerator</Generator>
+    </None>
+    <None Update="Db\gen\Repositories-Ifaces.txt">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Repositories-Ifaces.tt</DependentUpon>
+    </None>
+    <None Update="Db\gen\Repositories-Impl.tt">
+      <LastGenOutput>Repositories-Impl.txt</LastGenOutput>
+      <Generator>TextTemplatingFileGenerator</Generator>
+    </None>
+    <None Update="Db\gen\Repositories-Impl.txt">
+      <DependentUpon>Repositories-Impl.tt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,22 @@
+﻿[
+  {
+    "Entity": "User",
+    "DtoName": "ZUserDTO",
+    "ExcludeProps": [ "PasswordHash", "AccessFailedCount", "GuidexpirationDate", "LockoutEnabled", "LockoutEndDateUtc", "RegistrationGuid", "SecurityStamp", "TwoFactorEnabled" ]
+  },
+  {
+    "Entity": "UserClaim",
+    "DtoName": "UserClaimDTO",
+    "ExcludeProps": [ "PasswordHash", "AccessFailedCount", "GuidexpirationDate", "LockoutEnabled", "LockoutEndDateUtc", "RegistrationGuid", "SecurityStamp", "TwoFactorEnabled" ]
+  },
+  {
+    "Entity": "UserRole",
+    "DtoName": "UserRoleDTO",
+    "ExcludeProps": [ "PasswordHash", "AccessFailedCount", "GuidexpirationDate", "LockoutEnabled", "LockoutEndDateUtc", "RegistrationGuid", "SecurityStamp", "TwoFactorEnabled" ]
+  },
+  {
+    "Entity": "*",
+    "DtoName": "*DTO",
+    "ExcludeProps": [ "Email*", "Password*", "PhoneNumber*", "AccessFailedCount", "ExternalLogin", "GuidexpirationDate", "LockoutEnabled", "LockoutEndDateUtc", "RegistrationGuid", "SecurityStamp", "TwoFactorEnabled", "UserName", "UserClaims", "UserRoles", "UserLogins" ]
+  }
+]

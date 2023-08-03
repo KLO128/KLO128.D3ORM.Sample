@@ -1,0 +1,48 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="MySQL\QueryParenthesesTest - Copy.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="6.0.14" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.11.0" />
+    <PackageReference Include="MSTest.TestAdapter" Version="2.2.7" />
+    <PackageReference Include="MSTest.TestFramework" Version="2.2.7" />
+    <PackageReference Include="coverlet.collector" Version="3.1.0" />
+    <PackageReference Include="MySql.Data" Version="8.0.29" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\KLO128.D3ORM.Sample.Infra.EFCore.MSSQL\KLO128.D3ORM.Sample.Infra.EFCore.MSSQL.csproj" />
+    <ProjectReference Include="..\KLO128.D3ORM.Sample.Infra.EFCore.MySQL\KLO128.D3ORM.Sample.Infra.EFCore.MySQL.csproj" />
+    <ProjectReference Include="..\KLO128.D3ORM.Sample.Infra.EFCore.SQLite\KLO128.D3ORM.Sample.Infra.EFCore.SQLite.csproj" />
+    <ProjectReference Include="..\KLO128.D3ORM.Sample.Tests.UnitTests\KLO128.D3ORM.Sample.Tests.UnitTests.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="KLO128.D3ORM.Common">
+      <HintPath>..\Libs\KLO128.D3ORM.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="KLO128.D3ORM.Common.Abstract">
+      <HintPath>..\Libs\KLO128.D3ORM.Common.Abstract.dll</HintPath>
+    </Reference>
+    <Reference Include="KLO128.D3ORM.MSSQL">
+      <HintPath>..\Libs\KLO128.D3ORM.MSSQL.dll</HintPath>
+    </Reference>
+    <Reference Include="KLO128.D3ORM.MySQL">
+      <HintPath>..\Libs\KLO128.D3ORM.MySQL.dll</HintPath>
+    </Reference>
+    <Reference Include="KLO128.D3ORM.SQLite">
+      <HintPath>..\Libs\KLO128.D3ORM.SQLite.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

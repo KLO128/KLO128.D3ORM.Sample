@@ -1,0 +1,188 @@
+﻿Address
+Match
+MatchSetScore
+PlayoffRoundCouple
+Role
+Team
+TeamPlayer
+Tournament
+TournamentPlayerStat
+TournamentTeam
+TournamentTeamStat
+TourSerie
+User
+UserClaim
+UserLogin
+UserRole
+Props:
+step in:> Address.AddressId
+step in:> Address.Name
+step in:> Address.State
+step in:> Address.Town
+step in:> Address.Street
+step in:> Address.HouseNumber
+step in:> Address.LastChange
+step in:> Address.ChangedBy
+step in:> Address.Tournaments -> skipped... prop contained == False
+step in:> Match.MatchId
+step in:> Match.HomeTeamId
+step in:> Match.AwayTeamId
+step in:> Match.TournamentId
+step in:> Match.TournamentPhase
+step in:> Match.WinnerId
+step in:> Match.RefereeId
+step in:> Match.MatchDate
+step in:> Match.PlayoffRoundCoupleId
+step in:> Match.LastChange
+step in:> Match.ChangedBy
+step in:> Match.AwayTeam
+step in:> Match.HomeTeam
+step in:> Match.PlayoffRoundCouple
+step in:> Match.Tournament
+step in:> Match.MatchSetScores -> As Collection
+step in:> MatchSetScore.MatchSetScoreId
+step in:> MatchSetScore.MatchId
+step in:> MatchSetScore.HomeTeamScore
+step in:> MatchSetScore.AwayTeamScore
+step in:> MatchSetScore.SetOrder
+step in:> MatchSetScore.LastChange
+step in:> MatchSetScore.ChangedBy
+step in:> MatchSetScore.Match -> skipped... prop contained == False
+step in:> PlayoffRoundCouple.PlayoffRoundCoupleId
+step in:> PlayoffRoundCouple.TournamentTeam1Id
+step in:> PlayoffRoundCouple.TournamentTeam2Id
+step in:> PlayoffRoundCouple.PlayoffRound
+step in:> PlayoffRoundCouple.Team1Wins
+step in:> PlayoffRoundCouple.Team2Wins
+step in:> PlayoffRoundCouple.LastChange
+step in:> PlayoffRoundCouple.ChangedBy
+step in:> PlayoffRoundCouple.TournamentTeam1
+step in:> PlayoffRoundCouple.TournamentTeam2
+step in:> PlayoffRoundCouple.Matches -> As Collection
+step in:> Role.RoleId
+step in:> Role.Name
+step in:> Role.UserRoles -> skipped... prop contained == False
+step in:> Team.TeamId
+step in:> Team.Name
+step in:> Team.Logo
+step in:> Team.RegistrationDate
+step in:> Team.IsActive
+step in:> Team.LastChange
+step in:> Team.ChangedBy
+step in:> Team.MatchAwayTeams -> skipped... prop contained == False
+step in:> Team.MatchHomeTeams -> skipped... prop contained == False
+step in:> Team.TeamPlayers -> As Collection
+step in:> Team.TournamentTeams -> As Collection
+step in:> TeamPlayer.TeamPlayerId
+step in:> TeamPlayer.TeamId
+step in:> TeamPlayer.PlayerId
+step in:> TeamPlayer.LastChange
+step in:> TeamPlayer.ChangedBy
+step in:> TeamPlayer.Team -> skipped... prop contained == False
+step in:> Tournament.TournamentId
+step in:> Tournament.TourSerieId
+step in:> Tournament.AddressId
+step in:> Tournament.Name
+step in:> Tournament.StartDate
+step in:> Tournament.EndDate
+step in:> Tournament.EntryFee
+step in:> Tournament.MaxNumOfTeams
+step in:> Tournament.Note
+step in:> Tournament.LastChange
+step in:> Tournament.ChangedBy
+step in:> Tournament.Address
+step in:> Tournament.TourSerie
+step in:> Tournament.Matches -> As Collection
+step in:> Tournament.TournamentPlayerStats -> skipped... prop contained == False
+step in:> Tournament.TournamentTeams -> As Collection
+step in:> TournamentPlayerStat.TournamentPlayerStatId
+step in:> TournamentPlayerStat.TournamentId
+step in:> TournamentPlayerStat.PlayerId
+step in:> TournamentPlayerStat.TourPoints
+step in:> TournamentPlayerStat.AttackPoints
+step in:> TournamentPlayerStat.AttackPercentage
+step in:> TournamentPlayerStat.ServicePoints
+step in:> TournamentPlayerStat.ServicePercentage
+step in:> TournamentPlayerStat.UnforcedErrors
+step in:> TournamentPlayerStat.LastChange
+step in:> TournamentPlayerStat.ChangedBy
+step in:> TournamentPlayerStat.Player
+step in:> TournamentPlayerStat.Tournament
+step in:> TournamentTeam.TournamentTeamId
+step in:> TournamentTeam.TournamentId
+step in:> TournamentTeam.TeamId
+step in:> TournamentTeam.RegistrationDate
+step in:> TournamentTeam.EntryFeePaid -> skipped... prop contained == False
+step in:> TournamentTeam.LastChange
+step in:> TournamentTeam.ChangedBy
+step in:> TournamentTeam.Team
+step in:> TournamentTeam.Tournament
+step in:> TournamentTeam.PlayoffRoundCoupleTournamentTeam1s -> skipped... prop contained == False
+step in:> TournamentTeam.PlayoffRoundCoupleTournamentTeam2s -> skipped... prop contained == False
+step in:> TournamentTeam.TournamentTeamStats -> As Collection
+step in:> TournamentTeamStat.TournamentTeamStatId
+step in:> TournamentTeamStat.TournamentTeamId
+step in:> TournamentTeamStat.TournamentPhase
+step in:> TournamentTeamStat.PhasePoints
+step in:> TournamentTeamStat.GroupName
+step in:> TournamentTeamStat.Wins
+step in:> TournamentTeamStat.Losts
+step in:> TournamentTeamStat.Ties
+step in:> TournamentTeamStat.SetsWon
+step in:> TournamentTeamStat.SetsLost
+step in:> TournamentTeamStat.ScorePlus
+step in:> TournamentTeamStat.ScoreMinus
+step in:> TournamentTeamStat.LastChange
+step in:> TournamentTeamStat.ChangedBy
+step in:> TournamentTeamStat.TournamentTeam
+step in:> TourSerie.TourSerieId
+step in:> TourSerie.Name
+step in:> TourSerie.StartDate
+step in:> TourSerie.EndDate
+step in:> TourSerie.Category
+step in:> TourSerie.Note
+step in:> TourSerie.LastChange
+step in:> TourSerie.ChangedBy
+step in:> TourSerie.Tournaments -> As Collection
+step in:> User.UserId
+step in:> User.Email
+step in:> User.EmailConfirmed -> skipped... prop contained == False
+step in:> User.PasswordHash
+step in:> User.SecurityStamp
+step in:> User.PhoneNumber
+step in:> User.PhoneNumberConfirmed -> skipped... prop contained == False
+step in:> User.TwoFactorEnabled -> skipped... prop contained == False
+step in:> User.LockoutEndDateUtc
+step in:> User.LockoutEnabled -> skipped... prop contained == False
+step in:> User.AccessFailedCount
+step in:> User.UserName
+step in:> User.FirstName
+step in:> User.LastName
+step in:> User.Gender
+step in:> User.DateOfBirth
+step in:> User.RegistrationDate
+step in:> User.ExternalLogin -> skipped... prop contained == False
+step in:> User.RegistrationGuid
+step in:> User.GuidexpirationDate
+step in:> User.TournamentPlayerStats -> As Collection
+step in:> User.UserClaims -> As Collection
+step in:> User.UserLogins -> As Collection
+step in:> User.UserRoles -> As Collection
+step in:> UserClaim.UserClaimId
+step in:> UserClaim.UserId
+step in:> UserClaim.ClaimType
+step in:> UserClaim.ClaimValue
+step in:> UserClaim.User -> skipped... prop contained == False
+step in:> UserLogin.LoginProvider
+step in:> UserLogin.ProviderKey
+step in:> UserLogin.UserId
+step in:> UserLogin.User -> skipped... prop contained == False
+step in:> UserRole.UserRoleId
+step in:> UserRole.UserId
+step in:> UserRole.RoleId
+step in:> UserRole.IsActive
+step in:> UserRole.TeamIdOrDefault
+step in:> UserRole.Role
+step in:> UserRole.User -> skipped... prop contained == False
+//Entities generated successfully!
+

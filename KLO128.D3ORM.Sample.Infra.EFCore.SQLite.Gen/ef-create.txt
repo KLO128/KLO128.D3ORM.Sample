@@ -1,0 +1,2 @@
+﻿dotnet tool install --global dotnet-ef --version 6.0
+dotnet ef dbcontext scaffold "Data Source=..\\Docs\\SQLite\\sample_database.sqlite;"  Microsoft.EntityFrameworkCore.Sqlite --startup-project ./KLO128.D3ORM.Sample.Infra.EFCore.SQLite.Gen --project ./KLO128.D3ORM.Sample.Infra.EFCore.SQLite.Gen -o ../KLO128.D3ORM.Sample.Infra.EFCore.SQLite/Db -f --namespace KLO128.D3ORM.Sample.Infra.EFCore.SQLite.Db -f

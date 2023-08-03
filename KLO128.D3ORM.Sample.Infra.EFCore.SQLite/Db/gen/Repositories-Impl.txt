@@ -1,0 +1,18 @@
+﻿Address -> D3AddressRepository : D3CommonRepository, IAddressRepository
+Match -> D3MatchRepository : D3AggRootRepository, IMatchRepository
+MatchSetScore -> D3MatchSetScoreRepository : D3CommonRepository, IMatchSetScoreRepository
+PlayoffRoundCouple -> D3PlayoffRoundCoupleRepository : D3AggRootRepository, IPlayoffRoundCoupleRepository
+Role -> D3RoleRepository : D3CommonRepository, IRoleRepository
+Team -> D3TeamRepository : D3AggRootRepository, ITeamRepository
+TeamPlayer -> D3TeamPlayerRepository : D3CommonRepository, ITeamPlayerRepository
+Tournament -> D3TournamentRepository : D3AggRootRepository, ITournamentRepository
+TournamentPlayerStat -> D3TournamentPlayerStatRepository : D3AggRootRepository, ITournamentPlayerStatRepository
+TournamentTeam -> D3TournamentTeamRepository : D3CommonRepository, ITournamentTeamRepository
+TournamentTeamStat -> D3TournamentTeamStatRepository : D3AggRootRepository, ITournamentTeamStatRepository
+TourSerie -> D3TourSerieRepository : D3AggRootRepository, ITourSerieRepository
+User -> D3UserRepository : D3AggRootRepository, IUserRepository
+UserClaim -> D3UserClaimRepository : D3CommonRepository, IUserClaimRepository
+UserLogin -> D3UserLoginRepository : D3CommonRepository, IUserLoginRepository
+UserRole -> D3UserRoleRepository : D3CommonRepository, IUserRoleRepository
+//Entities generated successfully!
+

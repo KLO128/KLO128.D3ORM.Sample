@@ -1,0 +1,237 @@
+﻿<#@ template debug="true" hostspecific="true" language="C#" #>
+<#@ assembly name="netstandard" #>
+<#@ assembly name="System.Runtime" #>
+<#@ assembly name="System.Collections" #>
+<#@ assembly name="System.Memory" #>
+<#@ assembly name="Microsoft.Data.SqLite" #>
+
+<#@ assembly name="$(ProjectDir)bin/Debug/net6.0/KLO128.SazkaTip.Infra.D3ORMLite.dll" #>
+<#@ assembly name="$(ProjectDir)bin/Debug/net6.0/KLO128.D3ORM.SQLite.dll" #>
+<#@ assembly name="$(ProjectDir)bin/Debug/net6.0/KLO128.D3ORM.Common.dll" #>
+<#@ assembly name="$(ProjectDir)bin/Debug/net6.0/KLO128.D3ORM.Common.Abstract.dll" #>
+<#@ assembly name="$(ProjectDir)bin/Debug/net6.0/MySql.Data" #>
+
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Runtime" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Reflection" #>
+<#@ import namespace="System.Text.RegularExpressions" #>
+
+<#@ import namespace="KLO128.SazkaTip.Infra.D3ORMLite.Models" #>
+<#@ import namespace="KLO128.D3ORM.Common.Extensions" #>
+<#@ import namespace="KLO128.D3ORM.SQLite" #>
+<#@ import namespace="Microsoft.Data.Sqlite" #>
+<#@ output extension=".txt" #>
+
+<#
+	EntityNameSpace = "KLO128.D3ORM.Sample.Domain.Shared.Entities";
+	var specNameSpace = "KLO128.D3ORM.Sample.Infra.D3ORM.MySQL.Specs";
+	var files = Directory.GetFiles("../../../../KLO128.D3ORM.Sample.Infra.D3ORM.MySQL/Specs/");
+	var context = new D3MySQLContext(EntityPropMappings.Dict);
+
+	var baseSQLPropRegex = @"protected override string\? BaseSQL \{ get; set; \}";
+	//var asPropPathsProp = @"protected override string\? AsPropPaths \{ get; set; \}";
+	//var asPropPathsRegex = @$"{asPropPathsProp}(.+(?="";)"";)?";
+	var replacePatternFormat = @$"{baseSQLPropRegex}(.|\r\n)+(?=\r\n000)";
+
+	var baseSQLProp = baseSQLPropRegex.Replace("\\", string.Empty);
+	//asPropPathsProp = asPropPathsProp.Replace("\\", string.Empty);
+
+	foreach (var filePath in files)
+	{
+		var fileName = Path.GetFileName(filePath);
+		var className = Path.GetFileNameWithoutExtension(filePath);
+
+		if (!filePath.Contains("/Specs/") || fileName == "BaseQueryBuilder.tt" || fileName == "BaseQueryBuilder.txt" || fileName == "LogicalOpExt.cs" || fileName.EndsWith("SpecificationBase.cs") || fileName == "BaseQueryPreprocesor.tt" || fileName == "BaseQueryPreprocesor.cs")
+		{
+			continue;
+		}
+
+		var specType = Helpers.GetType(specNameSpace, className);
+
+		if (specType == null)
+        {
+			throw new Exception("Could not load the specification: " + className);
+        }
+
+		var fileText = File.ReadAllText(filePath);
+
+		var baseSQLPropIdx = fileText.IndexOf(baseSQLProp);
+
+        if (baseSQLPropIdx == -1)
+        {
+            if (fileText.IndexOf(": D3SpecificationBase") == -1)
+            {
+				continue;
+			}
+
+			throw new Exception($"Could not find override expression for BaseSQL string in {fileName}... Please do not use lambda, instead use getter and setter (=> -> {{ get; set; }} = ...) to have a code like this: {baseSQLProp}");
+		}
+
+		var baseSQLEndMatch = Regex.Match(fileText, replacePatternFormat.Insert(baseSQLPropRegex.Length, " =").Replace("000", "\";"));
+
+		var entityType = specType?.BaseType?.GetGenericArguments().FirstOrDefault();
+
+		if (entityType == null)
+        {
+			throw new Exception("Could not load the entityType for the specification: " + className);
+		}
+
+		//var sql = method.Invoke(null, new object [] { entityType, ShouldForceJoin(fileText), GetAggs(fileName, fileText) }).ToString();
+		var sql = D3QueryHelper.InitBaseSQL(context, entityType, ShouldForceJoin(fileText)/*, out string asPropPaths*/, GetAggs(fileName, fileText).ToArray());
+		string code;
+
+		if (!baseSQLEndMatch.Success)
+        {
+			if (fileText.IndexOf(baseSQLProp + " =", baseSQLPropIdx) == -1)
+			{
+				code = fileText.Replace(baseSQLProp, string.Concat(baseSQLProp, " = @\"", sql, "\";"));
+			}
+            else
+            {
+				continue;
+            }
+		}
+        else
+		{
+			var replacePattern = fileText.Substring(baseSQLPropIdx, baseSQLEndMatch.Length).Contains("\r\nWHERE") ? replacePatternFormat.Replace("000", "WHERE") : replacePatternFormat.Replace("000", @""";");
+			var replaceSufix = string.Empty;
+
+			code = Regex.Replace(fileText, replacePattern, string.Concat(baseSQLProp, " = @\"", sql, replaceSufix));
+		}
+
+		//code = Regex.Replace(code, asPropPathsRegex, asPropPaths.Length <= 1 ? asPropPathsProp : string.Concat(asPropPathsProp, " = @\"", asPropPaths, "\";"));
+
+		SaveOutput(filePath, code);
+	}
+
+	if (genSuccess)
+	{
+		WriteLine("//BaseSQL generated successfully!");
+	}
+	else
+	{
+		WriteLine("//No BaseSQL was generated... Uncomment: SaveOutput()");
+	}
+
+#>
+
+<#+
+	private string EntityNameSpace { get; set; } = string.Empty;
+	private string aggsStrToParse = "public override List<PropertyInfo?> Aggs { get; } = new List<PropertyInfo?>";
+	private string forceJoinStrToParse = "public abstract bool ForceInnerJoin { get; } = true;";
+	private bool genSuccess = false;
+
+	private bool ShouldForceJoin(string fileText)
+	{
+		return fileText.Contains(forceJoinStrToParse);
+	}
+
+	private List<PropertyInfo> GetAggs(string fileName, string fileText)
+	{
+		var startIdx = fileText.IndexOf(aggsStrToParse);
+
+		if (startIdx == -1)
+		{
+			throw new Exception($"Parsed text not found in the file: {fileName}; text:" + aggsStrToParse);
+		}
+
+		var initializerStart = fileText.IndexOf('{', startIdx + aggsStrToParse.Length);
+
+        if (startIdx == -1)
+        {
+			return new List<PropertyInfo>();
+        }
+
+		var aggs = new List<PropertyInfo>();
+		var typeContext = new StringBuilder();
+		var propContext = new StringBuilder();
+		var isInStr = false;
+		var settingType = false;
+		var settingProp = false;
+		var prevChar = '\0';
+
+
+		for (int i = initializerStart; i < fileText.Length; i++)
+		{
+			var ch = fileText[i];
+
+			if (ch == '"' || (ch == ')' && prevChar != ')' && prevChar != '"') || (ch == '(') && prevChar == 'f') //typeof(type).GetProperty(nameof(value))
+			{
+				isInStr = !isInStr;
+
+				if (!isInStr)
+				{
+                    if (!settingType)
+                    {
+						var propStr = propContext.ToString().Split('.').LastOrDefault() ?? string.Empty;
+						var prop = Helpers.GetType(EntityNameSpace, typeContext.ToString())?.GetProperty(propStr);
+
+						if (prop == null)
+						{
+							throw new Exception($"Invalid Property in Aggs: {typeContext.ToString()}.{propStr}");
+						}
+
+						aggs.Add(prop);
+
+						typeContext.Clear();
+						propContext.Clear();
+						settingType = false;
+						settingProp = false;
+					}
+				}
+                else if (!settingType && settingProp || !settingType && !settingProp)
+                {
+					settingType = true;
+					settingProp = false;
+                }
+                else
+                {
+					settingProp = true;
+					settingType = false;
+                }
+			}
+			else if (ch == '}')
+			{
+				break;
+			}
+			else if (isInStr)
+			{
+				if (settingProp)
+				{
+					propContext.Append(ch);
+				}
+				else if (settingType)
+                {
+					typeContext.Append(ch);
+                }
+			}
+
+			prevChar = ch;
+		}
+
+		return aggs;
+	}
+
+
+#>
+
+<#+
+
+private void SaveOutput(string outputFilePath, string text)
+{
+	using (var fs = new FileStream(outputFilePath, FileMode.OpenOrCreate))
+	{
+		fs.SetLength(0);
+		var bytes = Encoding.UTF8.GetBytes(text);
+		var awaiter = fs.WriteAsync(bytes, 0, bytes.Length);
+		awaiter.Wait();
+	}
+
+	this.GenerationEnvironment.Remove(0, this.GenerationEnvironment.Length);
+
+	genSuccess = true;
+}
+#>

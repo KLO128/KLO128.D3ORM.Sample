@@ -1,0 +1,153 @@
+﻿[
+  {
+    "Entity": "TourSerie",
+    "Aggs": [
+      {
+        "Entity": "Tournament",
+        "Aggs": "*"
+      }
+    ]
+  },
+  {
+    "Entity": "Tournament",
+    "Aggs": [
+      {
+        "Entity": "TourSerie",
+        "Aggs": "*"
+      },
+      {
+        "Entity": "TournamentTeam",
+        "Aggs": [
+          {
+            "Entity": "TournamentTeamStat",
+            "Aggs": []
+          },
+          {
+            "Entity": "Team",
+            "Aggs": "*"
+          },
+          {
+            "Entity": "Tournament",
+            "Aggs": "*"
+          }
+        ]
+      },
+      {
+        "Entity": "Match",
+        "Aggs": "*"
+      },
+      {
+        "Entity": "Address",
+        "Aggs": []
+      }
+    ]
+  },
+  {
+    "Entity": "Match",
+    "Aggs": [
+      {
+        "Entity": "Team",
+        "Aggs": "*"
+      },
+      {
+        "Entity": "MatchSetScore",
+        "Aggs": []
+      },
+      {
+        "Entity": "Tournament",
+        "Aggs": "*"
+      },
+      {
+        "Entity": "PlayoffRoundCouple",
+        "Aggs": "*"
+      }
+    ]
+  },
+  {
+    "Entity": "PlayoffRoundCouple",
+    "Aggs": [
+      {
+        "Entity": "TournamentTeam",
+        "Aggs": "*"
+      },
+      {
+        "Entity": "TournamentTeam",
+        "Aggs": "*"
+      },
+      {
+        "Entity": "Match",
+        "Aggs": "*"
+      }
+    ]
+  },
+  {
+    "Entity": "TournamentPlayerStat",
+    "Aggs": [
+      {
+        "Entity": "User",
+        "Aggs": "*"
+      },
+      {
+        "Entity": "Tournament",
+        "Aggs": "*"
+      }
+    ]
+  },
+  {
+    "Entity": "Team",
+    "Aggs": [
+      {
+        "Entity": "TeamPlayer",
+        "Aggs": [
+          {
+            "Entity": "User",
+            "Aggs": "*"
+          }
+        ]
+      },
+      {
+        "Entity": "TournamentTeam",
+        "Aggs": [
+          {
+            "Entity": "Tournament",
+            "Aggs": "*"
+          },
+          {
+            "Entity": "TournamentTeamStat",
+            "Aggs": []
+          },
+          {
+            "Entity": "Team",
+            "Aggs": "*"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Entity": "User",
+    "Aggs": [
+      {
+        "Entity": "UserClaim",
+        "Aggs": []
+      },
+      {
+        "Entity": "UserLogin",
+        "Aggs": []
+      },
+      {
+        "Entity": "UserRole",
+        "Aggs": [
+          {
+            "Entity": "Role",
+            "Aggs": []
+          }
+        ]
+      },
+      {
+        "Entity": "TournamentPlayerStat",
+        "Aggs": "*"
+      }
+    ]
+  }
+]

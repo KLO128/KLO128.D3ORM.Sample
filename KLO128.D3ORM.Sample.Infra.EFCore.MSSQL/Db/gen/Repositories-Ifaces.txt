@@ -1,0 +1,18 @@
+﻿Address -> IAddressRepository : ICommonRepository
+Match -> IMatchRepository : IAggRootRepository
+MatchSetScore -> IMatchSetScoreRepository : ICommonRepository
+PlayoffRoundCouple -> IPlayoffRoundCoupleRepository : IAggRootRepository
+Role -> IRoleRepository : ICommonRepository
+Team -> ITeamRepository : IAggRootRepository
+TeamPlayer -> ITeamPlayerRepository : ICommonRepository
+Tournament -> ITournamentRepository : IAggRootRepository
+TournamentPlayerStat -> ITournamentPlayerStatRepository : IAggRootRepository
+TournamentTeam -> ITournamentTeamRepository : ICommonRepository
+TournamentTeamStat -> ITournamentTeamStatRepository : IAggRootRepository
+TourSerie -> ITourSerieRepository : IAggRootRepository
+User -> IUserRepository : IAggRootRepository
+UserClaim -> IUserClaimRepository : ICommonRepository
+UserLogin -> IUserLoginRepository : ICommonRepository
+UserRole -> IUserRoleRepository : ICommonRepository
+//Entities generated successfully!
+

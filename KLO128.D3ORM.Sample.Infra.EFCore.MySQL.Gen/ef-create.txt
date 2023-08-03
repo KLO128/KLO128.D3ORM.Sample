@@ -1,0 +1,2 @@
+﻿dotnet tool install --global dotnet-ef --version 6.0
+dotnet ef dbcontext scaffold "Server=localhost;Database=d3orm_sample;Uid=d3orm;Pwd=Test1234;" Pomelo.EntityFrameworkCore.MySql --startup-project ./KLO128.D3ORM.Sample.Infra.EFCore.MySQL.Gen --project ./KLO128.D3ORM.Sample.Infra.EFCore.MySQL.Gen -o ../KLO128.D3ORM.Sample.Infra.EFCore.MySQL/Db -f --namespace KLO128.D3ORM.Sample.Infra.EFCore.MySQL.Db -f

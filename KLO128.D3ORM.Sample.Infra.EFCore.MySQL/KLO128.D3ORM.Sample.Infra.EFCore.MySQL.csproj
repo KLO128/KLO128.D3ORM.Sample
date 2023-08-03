@@ -1,0 +1,47 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="6.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Db\gen\EntitiesFromEFCore.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>EntitiesFromEFCore.txt</LastGenOutput>
+    </None>
+    <None Update="Db\gen\EntitiesFromEFCore.txt">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>EntitiesFromEFCore.tt</DependentUpon>
+    </None>
+    <None Update="Db\gen\Repositories-Ifaces.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Repositories-Ifaces.txt</LastGenOutput>
+    </None>
+    <None Update="Db\gen\Repositories-Ifaces.txt">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Repositories-Ifaces.tt</DependentUpon>
+    </None>
+    <None Update="Db\gen\Repositories-Impl.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Repositories-Impl.txt</LastGenOutput>
+    </None>
+    <None Update="Db\gen\Repositories-Impl.txt">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Repositories-Impl.tt</DependentUpon>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+</Project>

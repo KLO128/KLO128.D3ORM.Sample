@@ -1,0 +1,8 @@
+
+==================== Deployed 24.07.2023 19:57:26 ====================
+KLO128.D3ORM.Common.Abstract: [1.0.0.0] Release with Light Obfuscation
+KLO128.D3ORM.Common: [1.0.0.0] Release with Tough Obfuscation
+KLO128.D3ORM.MySQL: [1.0.0.0] Release with Tough Obfuscation
+KLO128.D3ORM.MSSQL: [1.0.0.0] Release with Tough Obfuscation
+KLO128.D3ORM.SQLite: [1.0.0.0] Release with Tough Obfuscation
+KLO128.D3ORM.SQLite: [1.0.0.0] Release with Tough Obfuscation

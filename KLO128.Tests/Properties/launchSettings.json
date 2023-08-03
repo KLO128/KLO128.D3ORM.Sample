@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "KLO128.Tests": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:60552;http://localhost:60556"
+    }
+  }
+}

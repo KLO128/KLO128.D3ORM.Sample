@@ -1,0 +1,202 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KLO128.D3ORM.Sample.Presentation.WebApi", "KLO128.D3ORM.Sample.Presentation.WebApi\KLO128.D3ORM.Sample.Presentation.WebApi.csproj", "{012BFE17-246E-44BE-A43B-78DB89EB80C3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KLO128.D3ORM.Sample.Domain.Shared", "KLO128.D3ORM.Sample.Domain.Shared\KLO128.D3ORM.Sample.Domain.Shared.csproj", "{6C2A17D7-1FAD-4813-9B0F-26D0179F5D37}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KLO128.D3ORM.Sample.Domain", "KLO128.D3ORM.Sample.Domain\KLO128.D3ORM.Sample.Domain.csproj", "{C2647586-EB1C-4B48-AC63-920BCD3645F4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KLO128.D3ORM.Sample.Application.Web", "KLO128.D3ORM.Sample.Application.Web\KLO128.D3ORM.Sample.Application.Web.csproj", "{4BBC0312-BF6D-4516-A7B5-6851F1B0C0A9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KLO128.D3ORM.Sample.Infra.EFCore.MySQL", "KLO128.D3ORM.Sample.Infra.EFCore.MySQL\KLO128.D3ORM.Sample.Infra.EFCore.MySQL.csproj", "{0B554789-15C3-423C-AE58-84D1069D42EB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KLO128.D3ORM.Sample.Infra.D3ORM.MySQL", "KLO128.D3ORM.Sample.Infra.D3ORM.MySQL\KLO128.D3ORM.Sample.Infra.D3ORM.MySQL.csproj", "{AE6B47D7-7FA7-48B6-8E80-69ED262F0E29}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{3AE2F244-23EE-452D-B220-FE0ACCB949DE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KLO128.D3ORM.Sample.Infra.EFCore.MySQL.Gen", "KLO128.D3ORM.Sample.Infra.EFCore.MySQL.Gen\KLO128.D3ORM.Sample.Infra.EFCore.MySQL.Gen.csproj", "{C6D12A53-0014-4B36-82A7-BCD96A859C55}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KLO128.D3ORM.Sample.Infra.D3ORM.SQLite", "KLO128.D3ORM.Sample.Infra.D3ORM.SQLite\KLO128.D3ORM.Sample.Infra.D3ORM.SQLite.csproj", "{9B34E7EA-25C8-4A9F-98FA-151B5CE4C0A1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KLO128.D3ORM.Sample.Infra.EFCore.SQLite", "KLO128.D3ORM.Sample.Infra.EFCore.SQLite\KLO128.D3ORM.Sample.Infra.EFCore.SQLite.csproj", "{AE8C6E54-1D51-4350-B7D5-84FC5E72D59B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KLO128.D3ORM.Sample.Infra.EFCore.SQLite.Gen", "KLO128.D3ORM.Sample.Infra.EFCore.SQLite.Gen\KLO128.D3ORM.Sample.Infra.EFCore.SQLite.Gen.csproj", "{D808EFE0-B8DF-4D64-9F01-2FDA065453C6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KLO128.D3ORM.Sample.Infra.D3ORM", "KLO128.D3ORM.Sample.Infra.D3ORM\KLO128.D3ORM.Sample.Infra.D3ORM.csproj", "{9577A802-EC27-4932-A98A-FA424653412B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KLO128.D3ORM.Sample.Application.Contracts", "KLO128.D3ORM.Sample.Application.Contracts\KLO128.D3ORM.Sample.Application.Contracts.csproj", "{A55A6307-EEAD-4924-B238-7D6AE82C1795}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KLO128.D3ORM.Sample.Tests.IntegrationTests.Application", "KLO128.D3ORM.Sample.Tests.IntegrationTests.Application\KLO128.D3ORM.Sample.Tests.IntegrationTests.Application.csproj", "{D0FA148D-35D6-4C54-B0DF-41C2461AA50C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KLO128.D3ORM.Sample.Tests.IntegrationTests.Domain", "KLO128.D3ORM.Sample.Tests.IntegrationTests.Domain\KLO128.D3ORM.Sample.Tests.IntegrationTests.Domain.csproj", "{CA2A2766-5777-4432-829D-A1095A68B8A3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KLO128.D3ORM.Sample.Tests.IntegrationTests.Infra", "KLO128.D3ORM.Sample.Tests.IntegrationTests.Infra\KLO128.D3ORM.Sample.Tests.IntegrationTests.Infra.csproj", "{8DA51782-BF6B-480D-B236-8DC1C81EB48E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KLO128.D3ORM.Sample.Tests.UnitTests.Infra", "KLO128.D3ORM.Sample.Tests.UnitTests.Infra\KLO128.D3ORM.Sample.Tests.UnitTests.Infra.csproj", "{9E9BB984-1B3C-409E-9509-4F0710A30F11}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KLO128.D3ORM.Sample.Tests.IntegrationTests", "KLO128.D3ORM.Sample.Tests.IntegrationTests\KLO128.D3ORM.Sample.Tests.IntegrationTests.csproj", "{813EFD50-9A5F-498C-85A4-DDAC7F747F9E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KLO128.D3ORM.Sample.Tests.UnitTests", "KLO128.D3ORM.Sample.Tests.UnitTests\KLO128.D3ORM.Sample.Tests.UnitTests.csproj", "{73321BF3-6D73-4909-80CC-CE1540AE979A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KLO128.D3ORM.Sample.Tests", "KLO128.D3ORM.Sample.Tests\KLO128.D3ORM.Sample.Tests.csproj", "{4E3F87FB-1C5D-400A-8DFD-278067642997}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libs", "Libs", "{C9FDB314-928A-49DA-8DFC-A946633C792F}"
+	ProjectSection(SolutionItems) = preProject
+		Libs\export.txt = Libs\export.txt
+		Libs\KLO128.D3ORM.Common.Abstract.dll = Libs\KLO128.D3ORM.Common.Abstract.dll
+		Libs\KLO128.D3ORM.Common.dll = Libs\KLO128.D3ORM.Common.dll
+		Libs\KLO128.D3ORM.MySQL.dll = Libs\KLO128.D3ORM.MySQL.dll
+		Libs\KLO128.D3ORM.SQLite.dll = Libs\KLO128.D3ORM.SQLite.dll
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KLO128.D3ORM.Sample.Infra.D3ORM.MSSQL", "KLO128.D3ORM.Sample.Infra.D3ORM.MSSQL\KLO128.D3ORM.Sample.Infra.D3ORM.MSSQL.csproj", "{25E8DC69-306A-42AF-9D70-B71A0B14364F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KLO128.D3ORM.Sample.Infra.EFCore.MSSQL", "KLO128.D3ORM.Sample.Infra.EFCore.MSSQL\KLO128.D3ORM.Sample.Infra.EFCore.MSSQL.csproj", "{D0E4BF43-47A5-48FF-907E-831C459B5259}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KLO128.D3ORM.Sample.Infra.EFCore.MSSQL.Gen", "KLO128.D3ORM.Sample.Infra.EFCore.MSSQL.Gen\KLO128.D3ORM.Sample.Infra.EFCore.MSSQL.Gen.csproj", "{A8A1D9A5-0354-4264-BA4F-EA6F9576CFCF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MSSQL", "MSSQL", "{11F62A89-9F1F-4DAA-B63A-A0F5B86B90AA}"
+	ProjectSection(SolutionItems) = preProject
+		Docs\MSSQL\create.sql = Docs\MSSQL\create.sql
+		Docs\MSSQL\insert-test-data-mssql.sql = Docs\MSSQL\insert-test-data-mssql.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MySQL", "MySQL", "{26B4EF15-06BA-4562-B0D0-751ECBA45C56}"
+	ProjectSection(SolutionItems) = preProject
+		Docs\MySQL\create.sql = Docs\MySQL\create.sql
+		Docs\MySQL\insert-test-data-mysql.sql = Docs\MySQL\insert-test-data-mysql.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SQLite", "SQLite", "{62156B31-7B09-43D7-AD98-FBBE7D3A1FEC}"
+	ProjectSection(SolutionItems) = preProject
+		Docs\SQLite\create.sql = Docs\SQLite\create.sql
+		Docs\SQLite\insert-test-data-sqlite.sql = Docs\SQLite\insert-test-data-sqlite.sql
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KLO128.Tests", "KLO128.Tests\KLO128.Tests.csproj", "{E20CD9C2-26A6-4E29-BF01-6860D62ED58A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{02EF420F-F213-4A38-BA47-5A7C81897628}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "images", "images", "{869C70F5-8899-463B-AE07-A64B7ABAB9F7}"
+	ProjectSection(SolutionItems) = preProject
+		Docs\images\podium.png = Docs\images\podium.png
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{012BFE17-246E-44BE-A43B-78DB89EB80C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{012BFE17-246E-44BE-A43B-78DB89EB80C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{012BFE17-246E-44BE-A43B-78DB89EB80C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{012BFE17-246E-44BE-A43B-78DB89EB80C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C2A17D7-1FAD-4813-9B0F-26D0179F5D37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C2A17D7-1FAD-4813-9B0F-26D0179F5D37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C2A17D7-1FAD-4813-9B0F-26D0179F5D37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C2A17D7-1FAD-4813-9B0F-26D0179F5D37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2647586-EB1C-4B48-AC63-920BCD3645F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2647586-EB1C-4B48-AC63-920BCD3645F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2647586-EB1C-4B48-AC63-920BCD3645F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2647586-EB1C-4B48-AC63-920BCD3645F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BBC0312-BF6D-4516-A7B5-6851F1B0C0A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BBC0312-BF6D-4516-A7B5-6851F1B0C0A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BBC0312-BF6D-4516-A7B5-6851F1B0C0A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BBC0312-BF6D-4516-A7B5-6851F1B0C0A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B554789-15C3-423C-AE58-84D1069D42EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B554789-15C3-423C-AE58-84D1069D42EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B554789-15C3-423C-AE58-84D1069D42EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B554789-15C3-423C-AE58-84D1069D42EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE6B47D7-7FA7-48B6-8E80-69ED262F0E29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE6B47D7-7FA7-48B6-8E80-69ED262F0E29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE6B47D7-7FA7-48B6-8E80-69ED262F0E29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE6B47D7-7FA7-48B6-8E80-69ED262F0E29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6D12A53-0014-4B36-82A7-BCD96A859C55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6D12A53-0014-4B36-82A7-BCD96A859C55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6D12A53-0014-4B36-82A7-BCD96A859C55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6D12A53-0014-4B36-82A7-BCD96A859C55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B34E7EA-25C8-4A9F-98FA-151B5CE4C0A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B34E7EA-25C8-4A9F-98FA-151B5CE4C0A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B34E7EA-25C8-4A9F-98FA-151B5CE4C0A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B34E7EA-25C8-4A9F-98FA-151B5CE4C0A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE8C6E54-1D51-4350-B7D5-84FC5E72D59B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE8C6E54-1D51-4350-B7D5-84FC5E72D59B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE8C6E54-1D51-4350-B7D5-84FC5E72D59B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE8C6E54-1D51-4350-B7D5-84FC5E72D59B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D808EFE0-B8DF-4D64-9F01-2FDA065453C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D808EFE0-B8DF-4D64-9F01-2FDA065453C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D808EFE0-B8DF-4D64-9F01-2FDA065453C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D808EFE0-B8DF-4D64-9F01-2FDA065453C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9577A802-EC27-4932-A98A-FA424653412B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9577A802-EC27-4932-A98A-FA424653412B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9577A802-EC27-4932-A98A-FA424653412B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9577A802-EC27-4932-A98A-FA424653412B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A55A6307-EEAD-4924-B238-7D6AE82C1795}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A55A6307-EEAD-4924-B238-7D6AE82C1795}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A55A6307-EEAD-4924-B238-7D6AE82C1795}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A55A6307-EEAD-4924-B238-7D6AE82C1795}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0FA148D-35D6-4C54-B0DF-41C2461AA50C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0FA148D-35D6-4C54-B0DF-41C2461AA50C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0FA148D-35D6-4C54-B0DF-41C2461AA50C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0FA148D-35D6-4C54-B0DF-41C2461AA50C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA2A2766-5777-4432-829D-A1095A68B8A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA2A2766-5777-4432-829D-A1095A68B8A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA2A2766-5777-4432-829D-A1095A68B8A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA2A2766-5777-4432-829D-A1095A68B8A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DA51782-BF6B-480D-B236-8DC1C81EB48E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DA51782-BF6B-480D-B236-8DC1C81EB48E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DA51782-BF6B-480D-B236-8DC1C81EB48E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DA51782-BF6B-480D-B236-8DC1C81EB48E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E9BB984-1B3C-409E-9509-4F0710A30F11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E9BB984-1B3C-409E-9509-4F0710A30F11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E9BB984-1B3C-409E-9509-4F0710A30F11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E9BB984-1B3C-409E-9509-4F0710A30F11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{813EFD50-9A5F-498C-85A4-DDAC7F747F9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{813EFD50-9A5F-498C-85A4-DDAC7F747F9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{813EFD50-9A5F-498C-85A4-DDAC7F747F9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{813EFD50-9A5F-498C-85A4-DDAC7F747F9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73321BF3-6D73-4909-80CC-CE1540AE979A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73321BF3-6D73-4909-80CC-CE1540AE979A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73321BF3-6D73-4909-80CC-CE1540AE979A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73321BF3-6D73-4909-80CC-CE1540AE979A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E3F87FB-1C5D-400A-8DFD-278067642997}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E3F87FB-1C5D-400A-8DFD-278067642997}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E3F87FB-1C5D-400A-8DFD-278067642997}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E3F87FB-1C5D-400A-8DFD-278067642997}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25E8DC69-306A-42AF-9D70-B71A0B14364F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25E8DC69-306A-42AF-9D70-B71A0B14364F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25E8DC69-306A-42AF-9D70-B71A0B14364F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25E8DC69-306A-42AF-9D70-B71A0B14364F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0E4BF43-47A5-48FF-907E-831C459B5259}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0E4BF43-47A5-48FF-907E-831C459B5259}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0E4BF43-47A5-48FF-907E-831C459B5259}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0E4BF43-47A5-48FF-907E-831C459B5259}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8A1D9A5-0354-4264-BA4F-EA6F9576CFCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8A1D9A5-0354-4264-BA4F-EA6F9576CFCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8A1D9A5-0354-4264-BA4F-EA6F9576CFCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8A1D9A5-0354-4264-BA4F-EA6F9576CFCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E20CD9C2-26A6-4E29-BF01-6860D62ED58A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E20CD9C2-26A6-4E29-BF01-6860D62ED58A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E20CD9C2-26A6-4E29-BF01-6860D62ED58A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E20CD9C2-26A6-4E29-BF01-6860D62ED58A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{11F62A89-9F1F-4DAA-B63A-A0F5B86B90AA} = {3AE2F244-23EE-452D-B220-FE0ACCB949DE}
+		{26B4EF15-06BA-4562-B0D0-751ECBA45C56} = {3AE2F244-23EE-452D-B220-FE0ACCB949DE}
+		{62156B31-7B09-43D7-AD98-FBBE7D3A1FEC} = {3AE2F244-23EE-452D-B220-FE0ACCB949DE}
+		{869C70F5-8899-463B-AE07-A64B7ABAB9F7} = {3AE2F244-23EE-452D-B220-FE0ACCB949DE}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3BEFFD4F-97F2-4443-A1AB-A5715BE2F30A}
+	EndGlobalSection
+EndGlobal

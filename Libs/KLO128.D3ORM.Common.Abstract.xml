@@ -1,0 +1,1235 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>KLO128.D3ORM.Common.Abstract</name>
+    </assembly>
+    <members>
+        <member name="F:KLO128.D3ORM.Common.Abstract.ComparisonOp.NONE">
+            <summary>
+            No Operator
+            </summary>
+        </member>
+        <member name="F:KLO128.D3ORM.Common.Abstract.ComparisonOp.IN">
+            <summary>
+            Item IN Collection or IN Selection Operator
+            </summary>
+        </member>
+        <member name="F:KLO128.D3ORM.Common.Abstract.ComparisonOp.NOT_IN">
+            <summary>
+            Item NOT IN Collection or NOT IN Selection Operator
+            </summary>
+        </member>
+        <member name="F:KLO128.D3ORM.Common.Abstract.ComparisonOp.EQUALS">
+            <summary>
+            '=' Operator
+            </summary>
+        </member>
+        <member name="F:KLO128.D3ORM.Common.Abstract.ComparisonOp.NOT_EQUAL">
+            <summary>
+            '!=' or '&lt;&gt;' Operator (Depends on database system.)
+            </summary>
+        </member>
+        <member name="F:KLO128.D3ORM.Common.Abstract.ComparisonOp.GREATER_THAN">
+            <summary>
+            '&gt;' Operator
+            </summary>
+        </member>
+        <member name="F:KLO128.D3ORM.Common.Abstract.ComparisonOp.LESS_THAN">
+            <summary>
+            '&lt;' Operator
+            </summary>
+        </member>
+        <member name="F:KLO128.D3ORM.Common.Abstract.ComparisonOp.GREATER_THAN_OR_EQUAL">
+            <summary>
+            '&gt;=' Operator
+            </summary>
+        </member>
+        <member name="F:KLO128.D3ORM.Common.Abstract.ComparisonOp.LESS_THAN_OR_EQUAL">
+            <summary>
+            '&lt;=' Operator
+            </summary>
+        </member>
+        <member name="F:KLO128.D3ORM.Common.Abstract.ComparisonOp.LIKE">
+            <summary>
+            LIKE Operator
+            </summary>
+        </member>
+        <member name="F:KLO128.D3ORM.Common.Abstract.ComparisonOp.NOT_LIKE">
+            <summary>
+            NOT LIKE Operator
+            </summary>
+        </member>
+        <member name="F:KLO128.D3ORM.Common.Abstract.ComputeType.NONE">
+            <summary>
+            No Function
+            </summary>
+        </member>
+        <member name="F:KLO128.D3ORM.Common.Abstract.ComputeType.Count">
+            <summary>
+            Count(prop) Function
+            </summary>
+        </member>
+        <member name="F:KLO128.D3ORM.Common.Abstract.ComputeType.Avg">
+            <summary>
+            Average(integerProp) Function
+            </summary>
+        </member>
+        <member name="F:KLO128.D3ORM.Common.Abstract.ComputeType.Min">
+            <summary>
+            Minimum(prop) Function
+            </summary>
+        </member>
+        <member name="F:KLO128.D3ORM.Common.Abstract.ComputeType.Max">
+            <summary>
+            Maximum(prop) Function
+            </summary>
+        </member>
+        <member name="F:KLO128.D3ORM.Common.Abstract.ComputeType.Sum">
+            <summary>
+            SUM(integerProp) Function
+            </summary>
+        </member>
+        <member name="F:KLO128.D3ORM.Common.Abstract.CrossColumnOp.DiffOrNone">
+            <summary>
+            PreviousResult - CurrentColumn or NONE
+            </summary>
+        </member>
+        <member name="F:KLO128.D3ORM.Common.Abstract.CrossColumnOp.Avg">
+            <summary>
+            ( PreviousResult + CurrentColumn ) / 2
+            </summary>
+        </member>
+        <member name="F:KLO128.D3ORM.Common.Abstract.CrossColumnOp.Sum">
+            <summary>
+            PreviousResult + CurrentColumn
+            </summary>
+        </member>
+        <member name="F:KLO128.D3ORM.Common.Abstract.CrossColumnOp.Multiple">
+            <summary>
+            PreviousResult * CurrentColumn
+            </summary>
+        </member>
+        <member name="F:KLO128.D3ORM.Common.Abstract.CrossColumnOp.Divide">
+            <summary>
+            PreviousResult / CurrentColumn
+            </summary>
+        </member>
+        <member name="F:KLO128.D3ORM.Common.Abstract.CrossColumnOp.Modulo">
+            <summary>
+            PreviousResult mod CurrentColumn
+            </summary>
+        </member>
+        <member name="F:KLO128.D3ORM.Common.Abstract.CrossColumnOp.CaseWhenThenElse">
+            <summary>
+            CASE WHEN ColumnX op ColumnY THEN CaseWhenThenResult ELSE CaseWhenElseResult END;
+            </summary>
+        </member>
+        <member name="F:KLO128.D3ORM.Common.Abstract.CrossColumnOp.CaseWhenThenElseEquals">
+            <summary>
+            CASE WHEN ColumnX = ColumnY THEN CaseWhenThenResult ELSE CaseWhenElseResult END;
+            </summary>
+        </member>
+        <member name="F:KLO128.D3ORM.Common.Abstract.CrossColumnOp.CaseWhenThenElseGreaterThan">
+            <summary>
+            CASE WHEN ColumnX &gt; ColumnY THEN CaseWhenThenResult ELSE CaseWhenElseResult END;
+            </summary>
+        </member>
+        <member name="F:KLO128.D3ORM.Common.Abstract.CrossColumnOp.CaseWhenThenElseLessThan">
+            <summary>
+            CASE WHEN ColumnX &lt; ColumnY THEN CaseWhenThenResult ELSE CaseWhenElseResult END;
+            </summary>
+        </member>
+        <member name="F:KLO128.D3ORM.Common.Abstract.CrossColumnOp.CaseWhenThenElseGreaterThanOrEquals">
+            <summary>
+            CASE WHEN ColumnX &gt;= ColumnY THEN CaseWhenThenResult ELSE CaseWhenElseResult END;
+            </summary>
+        </member>
+        <member name="F:KLO128.D3ORM.Common.Abstract.CrossColumnOp.CaseWhenThenElseLessThanOrEquals">
+            <summary>
+            CASE WHEN ColumnX &lt;= ColumnY THEN CaseWhenThenResult ELSE CaseWhenElseResult END;
+            </summary>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.DtoExtensions.ToDTO``1(System.Object)">
+            <summary>
+            Extension for object: Converts an object into <typeparamref name="TDTO"/>. The values of the properties with the same name (or id like name) belonging to the object are set into the target <typeparamref name="TDTO"/> instance properties.
+            </summary>
+            <typeparam name="TDTO"></typeparam>
+            <param name="entity">object invoker</param>
+            <returns></returns>
+        </member>
+        <member name="T:KLO128.D3ORM.Common.Abstract.IAggRootRepository`1">
+            <summary>
+            The interface for repositories handling aggregate root entities.
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.IAggRootRepository`1.AddForSQLOnly(`0)">
+            <summary>
+            Adds the root <paramref name="entity"/> instance into the database and ignores children adds.
+            </summary>
+            <param name="entity">root entity to add</param>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.IAggRootRepository`1.AddRoot(`0)">
+            <summary>
+            Adds the root <paramref name="entity"/> instance into the database.
+            </summary>
+            <param name="entity">root entity to add</param>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.IAggRootRepository`1.DeleteRoot(`0)">
+            <summary>
+            Deletes the root <paramref name="entity"/> instance from the database.
+            </summary>
+            <param name="entity">root entity to delete</param>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.IAggRootRepository`1.UpdateRootForSQLOnly(`0,System.Boolean)">
+            <summary>
+            Updates the root <paramref name="entity"/> instance only (without effect of children). Not usable for NoSQL databases, where you update whole JSON context, document, or nothing.
+            </summary>
+            <param name="entity">root entity to update</param>
+            <param name="subItemsChanged">Indicates if some recursive child has a change.</param>
+        </member>
+        <member name="T:KLO128.D3ORM.Common.Abstract.ICommonRepository`1">
+            <summary>
+            The common interface for repositories supporting D3ORM.
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ICommonRepository`1.AddAsChild``1(``0,System.Linq.Expressions.Expression{System.Func{``0,System.Collections.Generic.IEnumerable{`0}}},`0)">
+            <summary>
+            Adds the child <paramref name="entity"/> instance to the database and to its <paramref name="parent"/> collection instance (assignment to the <paramref name="prop"/>) ("one to many" relation).
+            </summary>
+            <typeparam name="TParent"></typeparam>
+            <param name="parent">parent entity, which the entity is aggregated to</param>
+            <param name="prop">The collection property that the entity is added to.</param>
+            <param name="entity">entity to add</param>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ICommonRepository`1.AddAsChild``1(``0,System.Linq.Expressions.Expression{System.Func{``0,`0}},`0)">
+            <summary>
+            Adds the child <paramref name="entity"/> instance to the database and to its <paramref name="parent"/> instance (assignment to the <paramref name="prop"/>) ("many to one" relation).
+            </summary>
+            <typeparam name="TParent"></typeparam>
+            <param name="parent">parent entity, which the entity is aggregated to</param>
+            <param name="prop">The property that the entity is assigned to.</param>
+            <param name="entity">entity to add</param>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ICommonRepository`1.BulkDelete(KLO128.D3ORM.Common.Abstract.ISpecification{`0},System.Int32,System.Nullable{System.Int32})">
+            <summary>
+            Calls <see cref="M:KLO128.D3ORM.Common.Abstract.ICommonRepository`1.BulkDeleteAsync(KLO128.D3ORM.Common.Abstract.ISpecification{`0},System.Nullable{System.Int32})"/>() and waits for a certain of time specified by the <paramref name="delayAfterTaskStart"/> to avoid disposing of the repository before an anonymous connection is created.
+            </summary>
+            <param name="specification">query specification for selecting data to delete</param>
+            <param name="delayAfterTaskStart">amount of time to wait after task start</param>
+            <param name="commandTimeout">command timeout (If null, then the default timeout is used.)</param>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ICommonRepository`1.BulkDeleteAsync(KLO128.D3ORM.Common.Abstract.ISpecification{`0},System.Nullable{System.Int32})">
+            <summary>
+            Deletes all the rows given from the <paramref name="specification"/> query asynchronously. An anonymous connection is created, so it will finish the job even if the request lifetime and all its services' lifetimes are over.
+            </summary>
+            <param name="specification">query specification for selecting data to delete</param>
+            <param name="commandTimeout">command timeout (If null, then the default timeout is used.)</param>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ICommonRepository`1.BulkUpdateAsync``1(KLO128.D3ORM.Common.Abstract.ISpecification{`0},System.Linq.Expressions.Expression{System.Func{`0,``0}},``0,System.Nullable{System.Int32})">
+            <summary>
+            Updates all the rows given from the <paramref name="specification"/> query asynchronously. An anonymous connection is created, so it will finish the job even if the request lifetime and all its services' lifetimes are over.
+            </summary>
+            <typeparam name="TProperty"></typeparam>
+            <param name="specification">query specification for selecting data to update</param>
+            <param name="prop">property to update</param>
+            <param name="value">value to assign</param>
+            <param name="commandTimeout">command timeout (If null, then the default timeout is used.)</param>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ICommonRepository`1.BulkUpdateAsync``2(KLO128.D3ORM.Common.Abstract.ISpecification{`0},System.Linq.Expressions.Expression{System.Func{`0,``0}},``0,System.Linq.Expressions.Expression{System.Func{`0,``1}},``1,System.Nullable{System.Int32})">
+            <summary>
+            Updates all the rows given from the <paramref name="specification"/> query asynchronously. An anonymous connection is created, so it will finish the job even if the request lifetime and all its services' lifetimes are over.
+            </summary>
+            <typeparam name="TProp1"></typeparam>
+            <typeparam name="TProp2"></typeparam>
+            <param name="specification">query specification for selecting data to update</param>
+            <param name="prop1">property to update</param>
+            <param name="value1">value to assign</param>
+            <param name="prop2">property to update</param>
+            <param name="value2">value to assign</param>
+            <param name="commandTimeout">command timeout (If null, then the default timeout is used.)</param>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ICommonRepository`1.BulkUpdateAsync``3(KLO128.D3ORM.Common.Abstract.ISpecification{`0},System.Linq.Expressions.Expression{System.Func{`0,``0}},``0,System.Linq.Expressions.Expression{System.Func{`0,``1}},``1,System.Linq.Expressions.Expression{System.Func{`0,``2}},``2,System.Nullable{System.Int32})">
+            <summary>
+            Updates all the rows given from the <paramref name="specification"/> query asynchronously. An anonymous connection is created, so it will finish the job even if the request lifetime and all its services' lifetimes are over.
+            </summary>
+            <typeparam name="TProp1"></typeparam>
+            <typeparam name="TProp2"></typeparam>
+            <typeparam name="TProp3"></typeparam>
+            <param name="specification">query specification for selecting data to update</param>
+            <param name="prop1">property to update</param>
+            <param name="value1">value to assign</param>
+            <param name="prop2">property to update</param>
+            <param name="value2">value to assign</param>
+            <param name="prop3">property to update</param>
+            <param name="value3">value to assign</param>
+            <param name="commandTimeout">command timeout (If null, then the default timeout is used.)</param>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ICommonRepository`1.BulkUpdateAsync``4(KLO128.D3ORM.Common.Abstract.ISpecification{`0},System.Linq.Expressions.Expression{System.Func{`0,``0}},``0,System.Linq.Expressions.Expression{System.Func{`0,``1}},``1,System.Linq.Expressions.Expression{System.Func{`0,``2}},``2,System.Linq.Expressions.Expression{System.Func{`0,``3}},``3,System.Nullable{System.Int32})">
+            <summary>
+            Updates all the rows given from the <paramref name="specification"/> query asynchronously. An anonymous connection is created, so it will finish the job even if the request lifetime and all its services' lifetimes are over.
+            </summary>
+            <typeparam name="TProp1"></typeparam>
+            <typeparam name="TProp2"></typeparam>
+            <typeparam name="TProp3"></typeparam>
+            <typeparam name="TProp4"></typeparam>
+            <param name="specification">query specification for selecting data to update</param>
+            <param name="prop1">property to update</param>
+            <param name="value1">value to assign</param>
+            <param name="prop2">property to update</param>
+            <param name="value2">value to assign</param>
+            <param name="prop3">property to update</param>
+            <param name="value3">value to assign</param>
+            <param name="prop4">property to update</param>
+            <param name="value4">value to assign</param>
+            <param name="commandTimeout">command timeout (If null, then the default timeout is used.)</param>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ICommonRepository`1.BulkUpdateAsync``5(KLO128.D3ORM.Common.Abstract.ISpecification{`0},System.Linq.Expressions.Expression{System.Func{`0,``0}},``0,System.Linq.Expressions.Expression{System.Func{`0,``1}},``1,System.Linq.Expressions.Expression{System.Func{`0,``2}},``2,System.Linq.Expressions.Expression{System.Func{`0,``3}},``3,System.Linq.Expressions.Expression{System.Func{`0,``4}},``4,System.Nullable{System.Int32})">
+            <summary>
+            Updates all the rows given from the <paramref name="specification"/> query asynchronously. An anonymous connection is created, so it will finish the job even if the request lifetime and all its services' lifetimes are over.
+            </summary>
+            <typeparam name="TProp1"></typeparam>
+            <typeparam name="TProp2"></typeparam>
+            <typeparam name="TProp3"></typeparam>
+            <typeparam name="TProp4"></typeparam>
+            <typeparam name="TProp5"></typeparam>
+            <param name="specification">query specification for selecting data to update</param>
+            <param name="prop1">property to update</param>
+            <param name="value1">value to assign</param>
+            <param name="prop2">property to update</param>
+            <param name="value2">value to assign</param>
+            <param name="prop3">property to update</param>
+            <param name="value3">value to assign</param>
+            <param name="prop4">property to update</param>
+            <param name="value4">value to assign</param>
+            <param name="prop5">property to update</param>
+            <param name="value5">value to assign</param>
+            <param name="commandTimeout">command timeout (If null, then the default timeout is used.)</param>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ICommonRepository`1.CountAvgMinMaxSum(KLO128.D3ORM.Common.Abstract.ISpecificationWithParams{`0},System.Nullable{System.Int32})">
+            <summary>
+            Calls AggCompute&lt;TResultDto&gt; - Computes COUNT, AVG, MIN, MAX, SUM aggregate functions according to the <paramref name="specification"/>.
+            </summary>
+            <param name="specification">query specification to compute results upon</param>
+            <param name="commandTimeout">command timeout (If null, then the default timeout is used.)</param>
+            <returns></returns>
+            <remarks>
+            Use this overload if you do not have a special TResultDto type for this <paramref name="specification"/>. The result type will then be the Expando <see cref="T:System.Object"/> type, which is convertible into IDictionary&lt;string, object?&gt;.<br/>
+            Property names with computing aggregate function have this format: SHORTCUT_PropertyName, shortcuts are: CNT, AVG, MIN, MAX, SUM.
+            </remarks>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ICommonRepository`1.CountAvgMinMaxSum``1(KLO128.D3ORM.Common.Abstract.ISpecificationWithParams{``0},System.Nullable{System.Int32})">
+            <summary>
+            Calls AggCompute&lt;TResultDto&gt; - Computes COUNT, AVG, MIN, MAX, SUM aggregate functions according to the <paramref name="specification"/>.
+            </summary>
+            <param name="specification">query specification to compute results upon</param>
+            <param name="commandTimeout">command timeout (If null, then the default timeout is used.)</param>
+            <returns></returns>
+            <remarks>
+            Property names with computing aggregate function have this format: SHORTCUT_PropertyName, shortcuts are: CNT, AVG, MIN, MAX, SUM.
+            </remarks>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ICommonRepository`1.CountRows(KLO128.D3ORM.Common.Abstract.ISpecificationWithParams{`0})">
+            <summary>
+            Returns the number of rows of the top <typeparamref name="TEntity"/> instance (without aggregation duplicities) in the query defined by the <paramref name="specification"/>.
+            </summary>
+            <param name="specification">query specification to count rows upon</param>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ICommonRepository`1.DeleteFromParent``1(``0,System.Linq.Expressions.Expression{System.Func{``0,System.Collections.Generic.IEnumerable{`0}}},`0)">
+            <summary>
+            Deletes the child <paramref name="entity"/> instance from the database and from its <paramref name="parent"/> collection instance (removes the <paramref name="entity"/> item from the <paramref name="prop"/>) ("one to many" relation).
+            </summary>
+            <typeparam name="TParent"></typeparam>
+            <param name="parent">parent entity, which the entity is aggregated to</param>
+            <param name="prop"> The collection property that the entity is deleted from.</param>
+            <param name="entity">entity to delete</param>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ICommonRepository`1.DeleteFromParent``1(``0,System.Linq.Expressions.Expression{System.Func{``0,`0}},`0)">
+            <summary>
+            Deletes the child <paramref name="entity"/> instance from the database and from its <paramref name="parent"/> instance (the <paramref name="prop"/> is set to null) ("many to one" relation).
+            </summary>
+            <typeparam name="TParent"></typeparam>
+            <param name="parent">parent entity, which the entity is aggregated to</param>
+            <param name="prop">The property that the entity is disposed from.</param>
+            <param name="entity">entity to delete</param>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ICommonRepository`1.ExecuteNonQueryCommand(System.String,System.Object[])">
+            <summary>
+            Formats parameters (if defined) and executes a non-query command...
+            </summary>
+            <param name="commandText">command text</param>
+            <param name="parameters">parameters</param>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ICommonRepository`1.ExecuteNonQueryStoredProcedure(System.String,System.Collections.Generic.IEnumerable{System.Data.Common.DbParameter},System.Nullable{System.Int32})">
+            <summary>
+            Executes a non-query stored procedure...
+            </summary>
+            <param name="storedProcedureName">stored procedure name</param>
+            <param name="parameters">parameters</param>
+            <param name="commandTimeout">command timeout (If null, then the default timeout is used.)</param>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ICommonRepository`1.ExecuteStoredCompute``1(System.String,System.Collections.Generic.IEnumerable{System.Data.Common.DbParameter},System.Collections.Generic.List{System.String},System.Nullable{System.Int32})">
+            <summary>
+            Executes a stored procedure query containing computing aggregate functions: COUNT, AVG, MIN, MAX, SUM. (Aggregation is possible if the correct column names are used.)
+            </summary>
+            <param name="storedProcedureName">name of stored procedure</param>
+            <param name="parameters">stored procedure parameters</param>
+            <param name="columnAsIdentifiers">column as identifiers needed for non-debug mode query</param>
+            <param name="commandTimeout">command timeout (If null, then the default timeout is used.)</param>
+            <returns></returns>
+            <remarks>
+            If you do not have a special <typeparamref name="TResult"/> type for this <paramref name="storedProcedureName"/> result use <see cref="T:System.Object"/>. The result type will then be the Expando <see cref="T:System.Object"/> type, which is convertible into IDictionary&lt;string, object?&gt;.
+            </remarks>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ICommonRepository`1.ExecuteStoredSelect(System.String,System.Collections.Generic.IEnumerable{System.Data.Common.DbParameter},System.Collections.Generic.List{System.String},System.Nullable{System.Int32})">
+            <summary>
+            Executes and maps a stored procedure query result to an aggregated list of <typeparamref name="TEntity"/>. (Aggregation is possible if the correct column names are used.)
+            </summary>
+            <param name="storedProcedureName">name of stored procedure</param>
+            <param name="parameters">stored procedure parameters</param>
+            <param name="columnAsIdentifiers">column as identifiers needed for non-debug mode query</param>
+            <param name="commandTimeout">command timeout (If null, then the default timeout is used.)</param>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ICommonRepository`1.ExecuteStoredSelect``1(System.String,System.Collections.Generic.IEnumerable{System.Data.Common.DbParameter},System.Collections.Generic.List{System.String},System.Nullable{System.Int32})">
+            <summary>
+            Executes and maps a stored procedure query result to an aggregated list of <typeparamref name="TEntity"/>. (Aggregation is possible if the correct column names are used.)
+            </summary>
+            <param name="storedProcedureName">name of stored procedure</param>
+            <param name="parameters">stored procedure parameters</param>
+            <param name="columnAsIdentifiers">column as identifiers needed for non-debug mode query</param>
+            <param name="commandTimeout">command timeout (If null, then the default timeout is used.)</param>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ICommonRepository`1.FindBy(KLO128.D3ORM.Common.Abstract.ISpecificationWithParams{`0})">
+            <summary>
+            Queries the database by the <paramref name="specification"/> and returns a single full object tree (aggregated) instance or null.
+            </summary>
+            <param name="specification">query specification</param>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ICommonRepository`1.FindBy``1(KLO128.D3ORM.Common.Abstract.ISpecificationWithParams{``0})">
+            <summary>
+            Queries the database by the <paramref name="specification"/> and returns a single full object tree (aggregated) instance or null.
+            </summary>
+            <param name="specification">query specification</param>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ICommonRepository`1.FindByIdSingle``1(``0)">
+            <summary>
+            Tries to find the row of type <typeparamref name="TEntity"/> by <paramref name="id"/> and returns an entity without any child aggregations (single row containing primitive type values only) or null.
+            </summary>
+            <typeparam name="TId"></typeparam>
+            <param name="id">primary key identifier</param>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ICommonRepository`1.FindManyBy(KLO128.D3ORM.Common.Abstract.ISpecificationWithParams{`0},System.Nullable{System.Int32})">
+            <summary>
+            Queries the database by the <paramref name="specification"/> and returns a full object tree (aggregated) list of <typeparamref name="TEntity"/> as a result.
+            </summary>
+            <param name="specification">query specification</param>
+            <param name="commandTimeout">command timeout (If null, then the default timeout is used.)</param>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ICommonRepository`1.FindManyBy(KLO128.D3ORM.Common.Abstract.ISpecificationWithParams{`0},System.Boolean,System.Nullable{System.Int32}@,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Queries the database by the <paramref name="specification"/> and returns a full object tree (aggregated) list of <typeparamref name="TEntity"/> as a result. Optionally, you can specify the number of top entity rows to <paramref name="skip"/> and the number of top entity rows to <paramref name="take"/> (included a in query result).
+            </summary>
+            <param name="specification">query specification</param>
+            <param name="countAllItems">Specifies if to count all items or not.</param>
+            <param name="allItemsCount">the number of all root items filtered if no skip and take applied</param>
+            <param name="skip">the number of top entity (only) rows to skip from the start of the query result</param>
+            <param name="take">the number of top entity (only) rows to take from the result starting at the index following the last skipped row</param>
+            <param name="commandTimeout">command timeout (If null, then the default timeout is used.)</param>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ICommonRepository`1.FindManyBy``1(KLO128.D3ORM.Common.Abstract.ISpecificationWithParams{``0},System.Nullable{System.Int32})">
+            <summary>
+            Queries the database by the <paramref name="specification"/> and returns a full object tree (aggregated) list of <typeparamref name="TResultDto"/> as a result.
+            </summary>
+            <param name="specification">query specification</param>
+            <param name="commandTimeout">command timeout (If null, then the default timeout is used.)</param>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ICommonRepository`1.FindManyBy``1(KLO128.D3ORM.Common.Abstract.ISpecificationWithParams{``0},System.Boolean,System.Nullable{System.Int32}@,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Queries the database by the <paramref name="specification"/> and returns a full object tree (aggregated) list of <typeparamref name="TResultDto"/> as a result. Optionally, you can specify the number of top entity rows to <paramref name="skip"/> and the number of top entity rows to <paramref name="take"/> (included a in query result).
+            </summary>
+            <param name="specification">query specification</param>
+            <param name="countAllItems">Specifies if to count all items or not.</param>
+            <param name="allItemsCount">the number of all root items filtered if no skip and take applied</param>
+            <param name="skip">the number of top entity (only) rows to skip from the start of the query result</param>
+            <param name="take">the number of top entity (only) rows to take from the result starting at the index following the last skipped row</param>
+            <param name="commandTimeout">command timeout (If null, then the default timeout is used.)</param>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ICommonRepository`1.SaveChanges">
+            <summary>
+            Function for ORMs that tracks the database context state (D3ORM does nothing).
+            </summary>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ICommonRepository`1.UpdateEntity(`0)">
+            <summary>
+            Updates the whole single <paramref name="entity"/> instance only (without any touch of any aggregation).
+            </summary>
+            <param name="entity">entity to update</param>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ICommonRepository`1.UpdateProperties``1(`0,System.Linq.Expressions.Expression{System.Func{`0,``0}},``0)">
+            <summary>
+            Updates the specified properties of the <paramref name="entity"/> instance using the expression(s) (without any touch of any aggregation).
+            </summary>
+            <typeparam name="TProperty"></typeparam>
+            <param name="entity">entity to update</param>
+            <param name="prop">property to update</param>
+            <param name="value">value to assign</param>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ICommonRepository`1.UpdateProperties``2(`0,System.Linq.Expressions.Expression{System.Func{`0,``0}},``0,System.Linq.Expressions.Expression{System.Func{`0,``1}},``1)">
+            <summary>
+            Updates the specified properties of the <paramref name="entity"/> instance using the expression(s) (without any touch of any aggregation).
+            </summary>
+            <typeparam name="TProp1"></typeparam>
+            <typeparam name="TProp2"></typeparam>
+            <param name="entity">entity to update</param>
+            <param name="prop1">property to update</param>
+            <param name="value1">value to assign</param>
+            <param name="prop2">property to update</param>
+            <param name="value2">value to assign</param>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ICommonRepository`1.UpdateProperties``3(`0,System.Linq.Expressions.Expression{System.Func{`0,``0}},``0,System.Linq.Expressions.Expression{System.Func{`0,``1}},``1,System.Linq.Expressions.Expression{System.Func{`0,``2}},``2)">
+            <summary>
+            Updates the specified properties of the <paramref name="entity"/> instance using the expression(s) (without any touch of any aggregation).
+            </summary>
+            <typeparam name="TProp1"></typeparam>
+            <typeparam name="TProp2"></typeparam>
+            <typeparam name="TProp3"></typeparam>
+            <param name="entity">entity to update</param>
+            <param name="prop1">property to update</param>
+            <param name="value1">value to assign</param>
+            <param name="prop2">property to update</param>
+            <param name="value2">value to assign</param>
+            <param name="prop3">property to update</param>
+            <param name="value3">value to assign</param>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ICommonRepository`1.UpdateProperties``4(`0,System.Linq.Expressions.Expression{System.Func{`0,``0}},``0,System.Linq.Expressions.Expression{System.Func{`0,``1}},``1,System.Linq.Expressions.Expression{System.Func{`0,``2}},``2,System.Linq.Expressions.Expression{System.Func{`0,``3}},``3)">
+            <summary>
+            Updates the specified properties of the <paramref name="entity"/> instance using the expression(s) (without any touch of any aggregation).
+            </summary>
+            <typeparam name="TProp1"></typeparam>
+            <typeparam name="TProp2"></typeparam>
+            <typeparam name="TProp3"></typeparam>
+            <typeparam name="TProp4"></typeparam>
+            <param name="entity">entity to update</param>
+            <param name="prop1">property to update</param>
+            <param name="value1">value to assign</param>
+            <param name="prop2">property to update</param>
+            <param name="value2">value to assign</param>
+            <param name="prop3">property to update</param>
+            <param name="value3">value to assign</param>
+            <param name="prop4">property to update</param>
+            <param name="value4">value to assign</param>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ICommonRepository`1.UpdateProperties``5(`0,System.Linq.Expressions.Expression{System.Func{`0,``0}},``0,System.Linq.Expressions.Expression{System.Func{`0,``1}},``1,System.Linq.Expressions.Expression{System.Func{`0,``2}},``2,System.Linq.Expressions.Expression{System.Func{`0,``3}},``3,System.Linq.Expressions.Expression{System.Func{`0,``4}},``4)">
+            <summary>
+            Updates the specified properties of the <paramref name="entity"/> instance using the expression(s) (without any touch of any aggregation).
+            </summary>
+            <typeparam name="TProp1"></typeparam>
+            <typeparam name="TProp2"></typeparam>
+            <typeparam name="TProp3"></typeparam>
+            <typeparam name="TProp4"></typeparam>
+            <typeparam name="TProp5"></typeparam>
+            <param name="entity">entity to update</param>
+            <param name="prop1">property to update</param>
+            <param name="value1">value to assign</param>
+            <param name="prop2">property to update</param>
+            <param name="value2">value to assign</param>
+            <param name="prop3">property to update</param>
+            <param name="value3">value to assign</param>
+            <param name="prop4">property to update</param>
+            <param name="value4">value to assign</param>
+            <param name="prop5">property to update</param>
+            <param name="value5">value to assign</param>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ICommonRepository`1.UpdateProperties``6(`0,System.Linq.Expressions.Expression{System.Func{`0,``0}},``0,System.Linq.Expressions.Expression{System.Func{`0,``1}},``1,System.Linq.Expressions.Expression{System.Func{`0,``2}},``2,System.Linq.Expressions.Expression{System.Func{`0,``3}},``3,System.Linq.Expressions.Expression{System.Func{`0,``4}},``4,System.Linq.Expressions.Expression{System.Func{`0,``5}},``5)">
+            <summary>
+            Updates the specified properties of the <paramref name="entity"/> instance using the expression(s) (without any touch of any aggregation).
+            </summary>
+            <typeparam name="TProp1"></typeparam>
+            <typeparam name="TProp2"></typeparam>
+            <typeparam name="TProp3"></typeparam>
+            <typeparam name="TProp4"></typeparam>
+            <typeparam name="TProp5"></typeparam>
+            <typeparam name="TProp6"></typeparam>
+            <param name="entity">entity to update</param>
+            <param name="prop1">property to update</param>
+            <param name="value1">value to assign</param>
+            <param name="prop2">property to update</param>
+            <param name="value2">value to assign</param>
+            <param name="prop3">property to update</param>
+            <param name="value3">value to assign</param>
+            <param name="prop4">property to update</param>
+            <param name="value4">value to assign</param>
+            <param name="prop5">property to update</param>
+            <param name="value5">value to assign</param>
+            <param name="prop6">property to update</param>
+            <param name="value6">value to assign</param>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ICommonRepository`1.UpdateProperties``7(`0,System.Linq.Expressions.Expression{System.Func{`0,``0}},``0,System.Linq.Expressions.Expression{System.Func{`0,``1}},``1,System.Linq.Expressions.Expression{System.Func{`0,``2}},``2,System.Linq.Expressions.Expression{System.Func{`0,``3}},``3,System.Linq.Expressions.Expression{System.Func{`0,``4}},``4,System.Linq.Expressions.Expression{System.Func{`0,``5}},``5,System.Linq.Expressions.Expression{System.Func{`0,``6}},``6)">
+            <summary>
+            Updates the specified properties of the <paramref name="entity"/> instance using the expression(s) (without any touch of any aggregation).
+            </summary>
+            <typeparam name="TProp1"></typeparam>
+            <typeparam name="TProp2"></typeparam>
+            <typeparam name="TProp3"></typeparam>
+            <typeparam name="TProp4"></typeparam>
+            <typeparam name="TProp5"></typeparam>
+            <typeparam name="TProp6"></typeparam>
+            <typeparam name="TProp7"></typeparam>
+            <param name="entity">entity to update</param>
+            <param name="prop1">property to update</param>
+            <param name="value1">value to assign</param>
+            <param name="prop2">property to update</param>
+            <param name="value2">value to assign</param>
+            <param name="prop3">property to update</param>
+            <param name="value3">value to assign</param>
+            <param name="prop4">property to update</param>
+            <param name="value4">value to assign</param>
+            <param name="prop5">property to update</param>
+            <param name="value5">value to assign</param>
+            <param name="prop6">property to update</param>
+            <param name="value6">value to assign</param>
+            <param name="prop7">property to update</param>
+            <param name="value7">value to assign</param>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ICommonRepository`1.UpdateProperties``8(`0,System.Linq.Expressions.Expression{System.Func{`0,``0}},``0,System.Linq.Expressions.Expression{System.Func{`0,``1}},``1,System.Linq.Expressions.Expression{System.Func{`0,``2}},``2,System.Linq.Expressions.Expression{System.Func{`0,``3}},``3,System.Linq.Expressions.Expression{System.Func{`0,``4}},``4,System.Linq.Expressions.Expression{System.Func{`0,``5}},``5,System.Linq.Expressions.Expression{System.Func{`0,``6}},``6,System.Linq.Expressions.Expression{System.Func{`0,``7}},``7)">
+            <summary>
+            Updates the specified properties of the <paramref name="entity"/> instance using the expression(s) (without any touch of any aggregation).
+            </summary>
+            <typeparam name="TProp1"></typeparam>
+            <typeparam name="TProp2"></typeparam>
+            <typeparam name="TProp3"></typeparam>
+            <typeparam name="TProp4"></typeparam>
+            <typeparam name="TProp5"></typeparam>
+            <typeparam name="TProp6"></typeparam>
+            <typeparam name="TProp7"></typeparam>
+            <typeparam name="TProp8"></typeparam>
+            <param name="entity">entity to update</param>
+            <param name="prop1">property to update</param>
+            <param name="value1">value to assign</param>
+            <param name="prop2">property to update</param>
+            <param name="value2">value to assign</param>
+            <param name="prop3">property to update</param>
+            <param name="value3">value to assign</param>
+            <param name="prop4">property to update</param>
+            <param name="value4">value to assign</param>
+            <param name="prop5">property to update</param>
+            <param name="value5">value to assign</param>
+            <param name="prop6">property to update</param>
+            <param name="value6">value to assign</param>
+            <param name="prop7">property to update</param>
+            <param name="value7">value to assign</param>
+            <param name="prop8">property to update</param>
+            <param name="value8">value to assign</param>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ICommonRepository`1.UpdateProperties``9(`0,System.Linq.Expressions.Expression{System.Func{`0,``0}},``0,System.Linq.Expressions.Expression{System.Func{`0,``1}},``1,System.Linq.Expressions.Expression{System.Func{`0,``2}},``2,System.Linq.Expressions.Expression{System.Func{`0,``3}},``3,System.Linq.Expressions.Expression{System.Func{`0,``4}},``4,System.Linq.Expressions.Expression{System.Func{`0,``5}},``5,System.Linq.Expressions.Expression{System.Func{`0,``6}},``6,System.Linq.Expressions.Expression{System.Func{`0,``7}},``7,System.Linq.Expressions.Expression{System.Func{`0,``8}},``8)">
+            <summary>
+            Updates the specified properties of the <paramref name="entity"/> instance using the expression(s) (without any touch of any aggregation).
+            </summary>
+            <typeparam name="TProp1"></typeparam>
+            <typeparam name="TProp2"></typeparam>
+            <typeparam name="TProp3"></typeparam>
+            <typeparam name="TProp4"></typeparam>
+            <typeparam name="TProp5"></typeparam>
+            <typeparam name="TProp6"></typeparam>
+            <typeparam name="TProp7"></typeparam>
+            <typeparam name="TProp8"></typeparam>
+            <typeparam name="TProp9"></typeparam>
+            <param name="entity">entity to update</param>
+            <param name="prop1">property to update</param>
+            <param name="value1">value to assign</param>
+            <param name="prop2">property to update</param>
+            <param name="value2">value to assign</param>
+            <param name="prop3">property to update</param>
+            <param name="value3">value to assign</param>
+            <param name="prop4">property to update</param>
+            <param name="value4">value to assign</param>
+            <param name="prop5">property to update</param>
+            <param name="value5">value to assign</param>
+            <param name="prop6">property to update</param>
+            <param name="value6">value to assign</param>
+            <param name="prop7">property to update</param>
+            <param name="value7">value to assign</param>
+            <param name="prop8">property to update</param>
+            <param name="value8">value to assign</param>
+            <param name="prop9">property to update</param>
+            <param name="value9">value to assign</param>
+        </member>
+        <member name="T:KLO128.D3ORM.Common.Abstract.ISpecification">
+            <summary>
+            The Basic Specification Interface
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.Abstract.ISpecification.DtoType">
+            <summary>
+            DTO type of the top entity or NULL.
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.Abstract.ISpecification.EntityType">
+            <summary>
+            The type of the top query entity.
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.Abstract.ISpecification.InnerContextId">
+            <summary>
+            The Id of an inner context (IN/NOT_IN) expression. The default value is 0. All contexts of the query can be specified as -1.
+            </summary>
+        </member>
+        <member name="T:KLO128.D3ORM.Common.Abstract.ISpecification`1">
+            <summary>
+            The Specification Template of <typeparamref name="TEntity"/> as a top entity context.
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.Abstract.ISpecification`1.PreBuilt">
+            <summary>
+            Indicates if this specification has been prebuilt (if PreBuild() has been called).
+            </summary>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.And(KLO128.D3ORM.Common.Abstract.ISpecification)">
+            <summary>
+            Returns a clone of this specification concatenated with the <paramref name="specification"/> by logical AND. If this or that expression consists of 2 or more top context logical OR expressions then the expression is covered by parentheses.
+            </summary>
+            <param name="specification">query specification to append</param>
+            <returns></returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.AsDTO``1(System.Tuple{System.Linq.Expressions.Expression{System.Func{`0,System.Object}},System.Linq.Expressions.Expression{System.Func{``0,System.Object}}}[])">
+            <summary>
+            Returns a new specification from this specification applying DTO mapping of the query result. Properties of DTO could be omitted. In case of using D3ORM, Id property names do not have to be defined in the <paramref name="props"/>, but must remain the same or should follow the id property pattern with the DTO name instead of the entity name. In case of renaming properties, specify the property name mappings by the <paramref name="props"/> parameter.
+            </summary>
+            <typeparam name="TDTO"></typeparam>
+            <param name="props">property name mappings</param>
+            <returns></returns>
+            <remarks>If any lower part of the specification is annotated with AsDTO, the top specification part should be too.<br/>
+            All DTOs used in a query has to have id properties of entities you want to aggregate. It must contain the primary key of the top entity at least. If you want to omit these properties, use JsonIgnoreAttribute not to include them in your payload of your HTTP responses or you can omit them completely using a different DTO and <see cref="M:KLO128.D3ORM.Common.Abstract.DtoExtensions.ToDTO``1(System.Object)"/> on server side.
+            </remarks>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.Avg(System.Nullable{System.Int32},System.Boolean,System.Linq.Expressions.Expression{System.Func{`0,System.IComparable}}[])">
+            <summary>
+            Clones this specification and computes the average value upon each of the <see cref="T:System.IComparable"/> <paramref name="properties"/>.
+            </summary>
+            <param name="propertySortOrder">The sort order of the first property values' computed result. NULL means no sort, 0 means default ascendant sort, less than zero means ABS(order) and ascendant sort, greater than zero means ABS(order) and descendant sort.</param>
+            <param name="includeAllPropsByDefault">Indicates if also to include all properties of all entities that do not contain any computed property in this query. Only computed properties are included by default, but you can include or exclude more properties of non-computed entity using <see cref="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.IncludeSelectProps``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}}[])"/> or <see cref="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.ExcludeSelectPropMasks(System.String[])"/>. You do not have to include primary key properties, they are included by default if you include some child property with computing function.</param>
+            <param name="properties">properties</param>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.AvgChild``2(System.Linq.Expressions.Expression{System.Func{``0,``1}},System.Nullable{System.Int32},System.Boolean,System.Linq.Expressions.Expression{System.Func{``1,System.IComparable}}[])">
+            <summary>
+            Clones this specification and computes the average value upon each of the <see cref="T:System.IComparable"/> <paramref name="properties"/> belonging to the <paramref name="parentProp"/>.
+            </summary>
+            <typeparam name="TParent"></typeparam>
+            <typeparam name="TChild"></typeparam>
+            <param name="parentProp">parent property</param>
+            <param name="propertySortOrder">The sort order of the first property values' computed result. NULL means no sort, 0 means default ascendant sort, less than zero means ABS(order) and ascendant sort, greater than zero means ABS(order) and descendant sort.</param>
+            <param name="includeAllPropsByDefault">Indicates if also to include all properties of all entities that do not contain any computed property in this query. Only computed properties are included by default, but you can include or exclude more properties of non-computed entity using <see cref="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.IncludeSelectProps``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}}[])"/> or <see cref="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.ExcludeSelectPropMasks(System.String[])"/>. You do not have to include primary key properties, they are included by default if you include some child property with computing function.</param>
+            <param name="properties">properties</param>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.AvgChild``2(System.Linq.Expressions.Expression{System.Func{``0,System.Collections.Generic.IEnumerable{``1}}},System.Nullable{System.Int32},System.Boolean,System.Linq.Expressions.Expression{System.Func{``1,System.IComparable}}[])">
+            <summary>
+            Clones this specification and computes the average value upon each of the <see cref="T:System.IComparable"/> <paramref name="properties"/> belonging to the <paramref name="parentProp"/>.
+            </summary>
+            <typeparam name="TParent"></typeparam>
+            <typeparam name="TChild"></typeparam>
+            <param name="parentProp">parent property</param>
+            <param name="propertySortOrder">The sort order of the first property values' computed result. NULL means no sort, 0 means default ascendant sort, less than zero means ABS(order) and ascendant sort, greater than zero means ABS(order) and descendant sort.</param>
+            <param name="includeAllPropsByDefault">Indicates if also to include all properties of all entities that do not contain any computed property in this query. Only computed properties are included by default, but you can include or exclude more properties of non-computed entity using <see cref="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.IncludeSelectProps``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}}[])"/> or <see cref="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.ExcludeSelectPropMasks(System.String[])"/>. You do not have to include primary key properties, they are included by default if you include some child property with computing function.</param>
+            <param name="properties">properties</param>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.Compare``2(System.Linq.Expressions.Expression{System.Func{`0,``0}},System.Linq.Expressions.Expression{System.Func{``0,``1}},KLO128.D3ORM.Common.Abstract.ComparisonOp,``1,KLO128.D3ORM.Common.Abstract.LogicalOp,System.Int32)">
+            <summary>
+            Returns a clone of this specification. Appends a new instance of FilterContext (or new instances if <paramref name="directParentNavigationProp"/> is not specified as a unique navigation parent property) using the <paramref name="prop"/>, the operator <paramref name="op"/> and the <paramref name="value"/>. The filter is appended to an existing context according to the <paramref name="appendWithOp"/> parameter.
+            </summary>
+            <typeparam name="TChild"></typeparam>
+            <typeparam name="TProp"></typeparam>
+            <param name="directParentNavigationProp">If not null, specifies the parent property that will be used as a single reference access to the entity which contains the property to compare.</param>
+            <param name="prop">property to compare the value with</param>
+            <param name="op">comparison operator</param>
+            <param name="value">value to compare</param>
+            <param name="appendWithOp">The operator used for appending the filter.</param>
+            <param name="innerContextId">If '&lt;0' then appends a filter context or replaces all placeholder filter contexts everywhere; If '==0' then appends a filter context or replaces all placeholder filter contexts only in the top context; If '&gt;0' then appends a filter context or replaces all placeholder filter contexts only in context with id specified by <paramref name="innerContextId"/>.</param>
+            <remarks>
+            Use null as a <paramref name="value"/> to omit the parameter at the specified order (placeholder index), use **Convert.DBNull** to compare it with database NULL.<br/>
+            Do not use DbParameter or <see cref="T:KLO128.D3ORM.Common.Abstract.D3Parameter"/>! Instead of that for the case of stored procedures, use D3ORM middleware repository that implements `ICommonRepository.ExecuteStoredSelect(..)` or (directly) `IDbConnection.AggSelect(..)` or `IDbConnection.AggCompute(..)` to select data from stored procedures...<br/>
+            Use the pattern {number} to make the same effect as <see cref="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.CompareFormat``1(System.Linq.Expressions.Expression{System.Func{`0,``0}},System.Linq.Expressions.Expression{System.Func{``0,System.IComparable}},KLO128.D3ORM.Common.Abstract.ComparisonOp,System.Int32,KLO128.D3ORM.Common.Abstract.LogicalOp)"/>.
+            </remarks>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.Compare``1(System.Linq.Expressions.Expression{System.Func{`0,``0}},KLO128.D3ORM.Common.Abstract.ComparisonOp,``0,KLO128.D3ORM.Common.Abstract.LogicalOp,System.Int32)">
+            <summary>
+            Returns a clone of this specification. Appends a new instance of FilterContext using the <paramref name="prop"/>, the operator <paramref name="op"/> and the <paramref name="value"/> The filter is appended to an existing context according to the <paramref name="appendWithOp"/> parameter.
+            </summary>
+            <typeparam name="TProp"></typeparam>
+            <param name="prop">property to compare the value with</param>
+            <param name="op">comparison operator</param>
+            <param name="value">value to compare</param>
+            <param name="appendWithOp">The operator used for appending the filter.</param>
+            <param name="innerContextId">If '&lt;0' then appends a filter context or replaces all placeholder filter contexts everywhere; If '==0' then appends a filter context or replaces all placeholder filter contexts only in the top context; If '&gt;0' then appends a filter context or replaces all placeholder filter contexts only in context with id specified by <paramref name="innerContextId"/>.</param>
+            <remarks>
+            Use null as a <paramref name="value"/> to omit the parameter at the specified order (placeholder index), use **Convert.DBNull** to compare it with database NULL.<br/>
+            Do not use DbParameter or <see cref="T:KLO128.D3ORM.Common.Abstract.D3Parameter"/>! Instead of that for the case of stored procedures, use D3ORM middleware repository that implements `ICommonRepository.ExecuteStoredSelect(..)` or (directly) `IDbConnection.AggSelect(..)` or `IDbConnection.AggCompute(..)` to select data from stored procedures...<br/>
+            Use the pattern {number} to make the same effect as <see cref="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.CompareFormat(System.Linq.Expressions.Expression{System.Func{`0,System.IComparable}},KLO128.D3ORM.Common.Abstract.ComparisonOp,System.Int32,KLO128.D3ORM.Common.Abstract.LogicalOp)"/>.
+            </remarks>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.CompareFormat``1(System.Linq.Expressions.Expression{System.Func{`0,``0}},System.Linq.Expressions.Expression{System.Func{``0,System.IComparable}},KLO128.D3ORM.Common.Abstract.ComparisonOp,System.Int32,KLO128.D3ORM.Common.Abstract.LogicalOp)">
+            <summary>
+            Returns a clone of this specification and appends a new instance of FilterContext (or new instances if <paramref name="directParentNavigationProp"/> is not specified as a unique navigation parent property) using the <paramref name="prop"/> specified and the operator <paramref name="op"/> and also sets the string value format according to <paramref name="placeholderIdx"/>. If the value of <paramref name="placeholderIdx"/> is used for a different property, then throws an error.
+            </summary>
+            <typeparam name="TChild"></typeparam>
+            <param name="directParentNavigationProp">If not null, specifies the parent property that will be used as a single reference access to the entity which contains the property to compare.</param>
+            <param name="prop">property to compare the value with</param>
+            <param name="op">comparison operator</param>
+            <param name="placeholderIdx">The index of the placeholder that will be substituted by a value when building a query.</param>
+            <param name="appendWithOp">The operator used for appending the filter.</param>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.CompareFormat(System.Linq.Expressions.Expression{System.Func{`0,System.IComparable}},KLO128.D3ORM.Common.Abstract.ComparisonOp,System.Int32,KLO128.D3ORM.Common.Abstract.LogicalOp)">
+            <summary>
+            Returns a clone of this specification and appends new instance(s) of FilterContext using the <paramref name="prop"/> specified and the operator <paramref name="op"/> and also sets the value format according to <paramref name="placeholderIdx"/>. If the value of <paramref name="placeholderIdx"/> is used for a different property, then throws an error.
+            </summary>
+            <param name="prop"></param>
+            <param name="op">comparison operator</param>
+            <param name="placeholderIdx">The index of the placeholder that will be substituted by a value when building a query.</param>
+            <param name="appendWithOp">The operator used for appending the filter.</param>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.Count(System.Nullable{System.Int32},System.Boolean,System.Linq.Expressions.Expression{System.Func{`0,System.IComparable}}[])">
+            <summary>
+            Clones this specification and computes the number of rows upon each property from <paramref name="properties"/> separately with the value of the <see cref="T:System.IComparable"/>.
+            </summary>
+            <param name="propertySortOrder">The sort order of the first property values' computed result. NULL means no sort, 0 means default ascendant sort, less than zero means ABS(order) and ascendant sort, greater than zero means ABS(order) and descendant sort.</param>
+            <param name="includeAllPropsByDefault">Indicates if also to include all properties of all entities that do not contain any computed property in this query. Only computed properties are included by default, but you can include or exclude more properties of non-computed entity using <see cref="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.IncludeSelectProps``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}}[])"/> or <see cref="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.ExcludeSelectPropMasks(System.String[])"/>. You do not have to include primary key properties, they are included by default if you include some child property with computing function.</param>
+            <param name="properties">properties</param>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.CountChild``2(System.Linq.Expressions.Expression{System.Func{``0,``1}},System.Nullable{System.Int32},System.Boolean,System.Linq.Expressions.Expression{System.Func{``1,System.IComparable}}[])">
+            <summary>
+            Clones this specification and computes the number of rows upon each property from <paramref name="properties"/> separately, belonging to the <paramref name="parentProp"/>, with the value of the <see cref="T:System.IComparable"/> .
+            </summary>
+            <typeparam name="TParent"></typeparam>
+            <typeparam name="TChild"></typeparam>
+            <param name="parentProp">parent property</param>
+            <param name="propertySortOrder">The sort order of the first property values' computed result. NULL means no sort, 0 means default ascendant sort, less than zero means ABS(order) and ascendant sort, greater than zero means ABS(order) and descendant sort.</param>
+            <param name="includeAllPropsByDefault">Indicates if also to include all properties of all entities that do not contain any computed property in this query. Only computed properties are included by default, but you can include or exclude more properties of non-computed entity using <see cref="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.IncludeSelectProps``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}}[])"/> or <see cref="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.ExcludeSelectPropMasks(System.String[])"/>. You do not have to include primary key properties, they are included by default if you include some child property with computing function.</param>
+            <param name="properties">properties</param>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.CountChild``2(System.Linq.Expressions.Expression{System.Func{``0,System.Collections.Generic.IEnumerable{``1}}},System.Nullable{System.Int32},System.Boolean,System.Linq.Expressions.Expression{System.Func{``1,System.IComparable}}[])">
+            <summary>
+            Clones this specification and computes the number of rows upon each property from <paramref name="properties"/> separately, belonging to the <paramref name="parentProp"/>, with the value of the <see cref="T:System.IComparable"/> .
+            </summary>
+            <typeparam name="TParent"></typeparam>
+            <typeparam name="TChild"></typeparam>
+            <param name="parentProp">parent property</param>
+            <param name="propertySortOrder">The sort order of the first property values' computed result. NULL means no sort, 0 means default ascendant sort, less than zero means ABS(order) and ascendant sort, greater than zero means ABS(order) and descendant sort.</param>
+            <param name="includeAllPropsByDefault">Indicates if also to include all properties of all entities that do not contain any computed property in this query. Only computed properties are included by default, but you can include or exclude more properties of non-computed entity using <see cref="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.IncludeSelectProps``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}}[])"/> or <see cref="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.ExcludeSelectPropMasks(System.String[])"/>. You do not have to include primary key properties, they are included by default if you include some child property with computing function.</param>
+            <param name="properties">properties</param>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.CountRows">
+            <summary>
+            Returns a clone of the current specification that generates counting query of root <typeparamref name="TEntity"/> rows instead of selecting that rows.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.CustomAggFunc(System.String,KLO128.D3ORM.Common.Abstract.ComputeType,System.Linq.Expressions.Expression{System.Func{`0,System.IComparable}},KLO128.D3ORM.Common.Abstract.CrossColumnOp,System.Linq.Expressions.Expression{System.Func{`0,System.IComparable}},System.Linq.Expressions.Expression{System.Func{`0,System.IComparable}},System.Linq.Expressions.Expression{System.Func{`0,System.IComparable}},KLO128.D3ORM.Common.Abstract.CrossColumnOp,System.Boolean,System.Linq.Expressions.Expression{System.Func{`0,System.IComparable}},KLO128.D3ORM.Common.Abstract.CrossColumnOp,System.Linq.Expressions.Expression{System.Func{`0,System.IComparable}},System.Linq.Expressions.Expression{System.Func{`0,System.IComparable}},System.Linq.Expressions.Expression{System.Func{`0,System.IComparable}},KLO128.D3ORM.Common.Abstract.CrossColumnOp,System.IComparable,System.Nullable{System.Int32},System.Boolean)">
+            <summary>
+            Clones this specification, computes cross column custom operations and optionally applies a constant and (or) an aggregation function on the result.
+            </summary>
+            <param name="operationCustomName">operation custom name (also an AS identifier local property name)</param>
+            <param name="computedResultProjection">aggregation function applied on the result of cross column operations</param>
+            <param name="prop1">property 1</param>
+            <param name="op1">operator between <paramref name="prop1"/> and <paramref name="prop2"/></param>
+            <param name="prop2">property 2</param>
+            <param name="caseWhen1or2ThenResult">The result of a successful condition of the conditional operator <paramref name="op1"/>. If the <paramref name="op1"/> is not like <see cref="F:KLO128.D3ORM.Common.Abstract.CrossColumnOp.CaseWhenThenElse"/>, then this parameter is ignored.</param>
+            <param name="caseWhen1or2ElseResult">The result of an unsuccessful condition of the conditional operator <paramref name="op1"/>. If the <paramref name="op1"/> is not like <see cref="F:KLO128.D3ORM.Common.Abstract.CrossColumnOp.CaseWhenThenElse"/>, then this parameter is ignored.</param>
+            <param name="op2">operator between <paramref name="prop2"/> and <paramref name="prop3"/></param>
+            <param name="placeParentheses">Optionally places the couple of <paramref name="prop3"/> <paramref name="op3"/> <paramref name="prop4"/> into parentheses, the same for the couple <paramref name="prop1"/> <paramref name="op1"/> <paramref name="prop2"/>.</param>
+            <param name="prop3">property 3</param>
+            <param name="op3">operator between <paramref name="prop3"/> and <paramref name="prop4"/></param>
+            <param name="prop4">property 4</param>
+            <param name="caseWhen3or4ThenResult">The result of a successful condition of the conditional operator <paramref name="op3"/>. If the <paramref name="op3"/> is not like <see cref="F:KLO128.D3ORM.Common.Abstract.CrossColumnOp.CaseWhenThenElse"/>, then this parameter is ignored.</param>
+            <param name="caseWhen3or4ElseResult">The result of an unsuccessful condition of the conditional operator <paramref name="op3"/>. If the <paramref name="op3"/> is not like <see cref="F:KLO128.D3ORM.Common.Abstract.CrossColumnOp.CaseWhenThenElse"/>, then this parameter is ignored.</param>
+            <param name="constantOp">constant operator</param>
+            <param name="constantOrPlaceholder">The constant or placeholder index for a constant which is optionally applied with the <paramref name="constantOp"/> on the whole expression.</param>
+            <param name="propertySortOrder">The sort order of the first property values' computed result. NULL means no sort, 0 means default ascendant sort, less than zero means ABS(order) and ascendant sort, greater than zero means ABS(order) and descendant sort.</param>
+            <param name="includeAllPropsByDefault">Indicates if also to include all properties of all entities that do not contain any computed property in this query. Only computed properties are included by default, but you can include or exclude more properties of non-computed entity using <see cref="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.IncludeSelectProps``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}}[])"/> or <see cref="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.ExcludeSelectPropMasks(System.String[])"/>. You do not have to include primary key properties, they are included by default if you include some child property with computing function.</param>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.ExcludeSelectPropMasks(System.String[])">
+            <summary>
+            Returns a clone of this specification and removes all sensitive properties from the query specified by the <paramref name="excludePropNamePatterns"/>.
+            </summary>
+            <param name="excludePropNamePatterns">regular expression patterns for property names to exclude</param>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.In(System.Linq.Expressions.Expression{System.Func{`0,System.IComparable}},KLO128.D3ORM.Common.Abstract.ISpecification,KLO128.D3ORM.Common.Abstract.LogicalOp,System.Int32)">
+            <summary>
+            Returns a clone of this specification that satisfies the <see cref="F:KLO128.D3ORM.Common.Abstract.ComparisonOp.IN"/> filter applied on the <paramref name="specification"/> accessed only from the <paramref name="leftSideFilterProp"/>.
+            </summary>
+            <param name="leftSideFilterProp">property to compare with the inner projection</param>
+            <param name="specification">The specification used in inner (IN/NOT_IN) projection. The specification query should return single column rows with the same type and meaning as <paramref name="leftSideFilterProp"/>.</param>
+            <param name="appendWithOp">The operator used for appending the filter.</param>
+            <param name="innerContextId">If '&lt; 0' then appends the <paramref name="specification"/> filter with a new generated <paramref name="innerContextId"/> else if '&gt; 0' sets the <paramref name="innerContextId"/> for the <paramref name="specification"/> filter as specified.</param>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.In(KLO128.D3ORM.Common.Abstract.ISpecification,KLO128.D3ORM.Common.Abstract.LogicalOp,System.Int32)">
+            <summary>
+            Returns a clone of this specification that satisfies the <see cref="F:KLO128.D3ORM.Common.Abstract.ComparisonOp.IN"/> filter applied on the <paramref name="specification"/>.
+            </summary>
+            <param name="specification">The specification used in inner (IN/NOT_IN) projection.</param>
+            <param name="appendWithOp">The operator used for appending the filter.</param>
+            <param name="innerContextId">If '&lt; 0' then appends the <paramref name="specification"/> filter with a new generated <paramref name="innerContextId"/> else if '&gt; 0' sets the <paramref name="innerContextId"/> for the <paramref name="specification"/> filter as specified.</param>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.In``2(System.Linq.Expressions.Expression{System.Func{`0,``0}},System.Linq.Expressions.Expression{System.Func{``0,``1}},``1[],KLO128.D3ORM.Common.Abstract.LogicalOp)">
+            <summary>
+            Returns a clone of this specification and appends the <paramref name="prop"/> and the <paramref name="array"/> with the <see cref="F:KLO128.D3ORM.Common.Abstract.ComparisonOp.IN"/> operator only for the <paramref name="prop"/> accessed from the <paramref name="directParentNavigationProp" />.
+            </summary>
+            <param name="directParentNavigationProp">If not null, specifies the parent property that will be used as a single reference access to the entity which contains the property to compare whether the value is IN/NOT_IN the <paramref name="array"/>.</param>
+            <param name="prop">The property to compare whether the value is IN/NOT_IN the <paramref name="array"/>.</param>
+            <param name="array">The array to test if contains the property value.</param>
+            <param name="appendWithOp">The operator used for appending the filter.</param>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.In``1(System.Linq.Expressions.Expression{System.Func{`0,``0}},``0[],KLO128.D3ORM.Common.Abstract.LogicalOp)">
+            <summary>
+            Returns a clone of this specification and appends th the <paramref name="prop"/> and the <paramref name="array"/> with the <see cref="F:KLO128.D3ORM.Common.Abstract.ComparisonOp.IN"/> operator.
+            </summary>
+            <typeparam name="TProp"></typeparam>
+            <param name="prop">The property to compare whether the value is IN/NOT_IN the <paramref name="array"/>.</param>
+            <param name="array">The array to test if contains the property value.</param>
+            <param name="appendWithOp">The operator used for appending the filter.</param>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.IncludeSelectProps``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}}[])">
+            <summary>
+            Returns a clone of this specification and specifies which properties to include in the aggregate result (<see cref="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.ExcludeSelectPropMasks(System.String[])"/> has higher priority). If you want to include all, just use: (<typeparamref name="TAgg" /> x) => "*". Id property is included automatically if you include at least one property of an entity which the property belongs to.
+            </summary>
+            <typeparam name="TAgg"></typeparam>
+            <param name="includeProps">properties to be included in the query</param>
+            <returns></returns>
+            <remarks>
+            For the case of using AggCompute(..), you need to include all the non-computing properties you want to sort by!
+            </remarks>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.InFormat``1(System.Linq.Expressions.Expression{System.Func{`0,``0}},System.Linq.Expressions.Expression{System.Func{``0,System.IComparable}},System.Int32,KLO128.D3ORM.Common.Abstract.LogicalOp)">
+            <summary>
+            Returns a clone of this specification and appends the <paramref name="prop"/> and the <paramref name="placeholderIdx"/> with the <see cref="F:KLO128.D3ORM.Common.Abstract.ComparisonOp.IN"/> operator only for the <paramref name="prop"/> accessed from the <paramref name="directParentNavigationProp" />. (The <paramref name="placeholderIdx"/> must be substituted by an array.)
+            </summary>
+            <typeparam name="TChild"></typeparam>
+            <param name="directParentNavigationProp">If not null, specifies the parent property that will be used as a single reference access to the entity which contains the property to compare whether the value is IN/NOT_IN the substituted array.</param>
+            <param name="prop">The property to compare whether the value is IN/NOT_IN the substituted array.</param>
+            <param name="placeholderIdx">The index of the placeholder that will be substituted by an array parameter value.</param>
+            <param name="appendWithOp">The operator used for appending the filter.</param>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.InFormat(System.Linq.Expressions.Expression{System.Func{`0,System.IComparable}},System.Int32,KLO128.D3ORM.Common.Abstract.LogicalOp)">
+            <summary>
+            Returns a clone of this specification and appends the <paramref name="prop"/> and the <paramref name="placeholderIdx"/> with the <see cref="F:KLO128.D3ORM.Common.Abstract.ComparisonOp.IN"/> operator. (The <paramref name="placeholderIdx"/> must be substituted by an array.)
+            </summary>
+            <param name="prop">The property to compare whether the value is IN/NOT_IN the substituted array.</param>
+            <param name="placeholderIdx">The index of the placeholder that will be substituted by an array parameter value.</param>
+            <param name="appendWithOp">The operator used for appending the filter.</param>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.Min(System.Nullable{System.Int32},System.Boolean,System.Linq.Expressions.Expression{System.Func{`0,System.IComparable}}[])">
+            <summary>
+            Clones this specification and computes the minimal value upon each of the <see cref="T:System.IComparable"/> <paramref name="properties"/>.
+            </summary>
+            <param name="propertySortOrder">The sort order of the first property values' computed result. NULL means no sort, 0 means default ascendant sort, less than zero means ABS(order) and ascendant sort, greater than zero means ABS(order) and descendant sort.</param>
+            <param name="includeAllPropsByDefault">Indicates if also to include all properties of all entities that do not contain any computed property in this query. Only computed properties are included by default, but you can include or exclude more properties of non-computed entity using <see cref="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.IncludeSelectProps``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}}[])"/> or <see cref="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.ExcludeSelectPropMasks(System.String[])"/>. You do not have to include primary key properties, they are included by default if you include some child property with computing function.</param>
+            <param name="properties">properties</param>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.MinChild``2(System.Linq.Expressions.Expression{System.Func{``0,``1}},System.Nullable{System.Int32},System.Boolean,System.Linq.Expressions.Expression{System.Func{``1,System.IComparable}}[])">
+            <summary>
+            Clones this specification and computes the minimal value upon each of the <see cref="T:System.IComparable"/> <paramref name="properties"/> belonging to the <paramref name="parentProp"/>.
+            </summary>
+            <typeparam name="TParent"></typeparam>
+            <typeparam name="TChild"></typeparam>
+            <param name="parentProp">parent property</param>
+            <param name="propertySortOrder">The sort order of the first property values' computed result. NULL means no sort, 0 means default ascendant sort, less than zero means ABS(order) and ascendant sort, greater than zero means ABS(order) and descendant sort.</param>
+            <param name="includeAllPropsByDefault">Indicates if also to include all properties of all entities that do not contain any computed property in this query. Only computed properties are included by default, but you can include or exclude more properties of non-computed entity using <see cref="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.IncludeSelectProps``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}}[])"/> or <see cref="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.ExcludeSelectPropMasks(System.String[])"/>. You do not have to include primary key properties, they are included by default if you include some child property with computing function.</param>
+            <param name="properties">properties</param>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.MinChild``2(System.Linq.Expressions.Expression{System.Func{``0,System.Collections.Generic.IEnumerable{``1}}},System.Nullable{System.Int32},System.Boolean,System.Linq.Expressions.Expression{System.Func{``1,System.IComparable}}[])">
+            <summary>
+            Clones this specification and computes the minimal value upon each of the <see cref="T:System.IComparable"/> <paramref name="properties"/> belonging to the <paramref name="parentProp"/>.
+            </summary>
+            <typeparam name="TParent"></typeparam>
+            <typeparam name="TChild"></typeparam>
+            <param name="parentProp">parent property</param>
+            <param name="propertySortOrder">The sort order of the first property values' computed result. NULL means no sort, 0 means default ascendant sort, less than zero means ABS(order) and ascendant sort, greater than zero means ABS(order) and descendant sort.</param>
+            <param name="includeAllPropsByDefault">Indicates if also to include all properties of all entities that do not contain any computed property in this query. Only computed properties are included by default, but you can include or exclude more properties of non-computed entity using <see cref="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.IncludeSelectProps``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}}[])"/> or <see cref="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.ExcludeSelectPropMasks(System.String[])"/>. You do not have to include primary key properties, they are included by default if you include some child property with computing function.</param>
+            <param name="properties">properties</param>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.Max(System.Nullable{System.Int32},System.Boolean,System.Linq.Expressions.Expression{System.Func{`0,System.IComparable}}[])">
+            <summary>
+            Clones this specification and computes the maximal value upon each of the <see cref="T:System.IComparable"/> <paramref name="properties"/>.
+            </summary>
+            <param name="propertySortOrder">The sort order of the first property values' computed result. NULL means no sort, 0 means default ascendant sort, less than zero means ABS(order) and ascendant sort, greater than zero means ABS(order) and descendant sort.</param>
+            <param name="includeAllPropsByDefault">Indicates if also to include all properties of all entities that do not contain any computed property in this query. Only computed properties are included by default, but you can include or exclude more properties of non-computed entity using <see cref="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.IncludeSelectProps``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}}[])"/> or <see cref="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.ExcludeSelectPropMasks(System.String[])"/>. You do not have to include primary key properties, they are included by default if you include some child property with computing function.</param>
+            <param name="properties">properties</param>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.MaxChild``2(System.Linq.Expressions.Expression{System.Func{``0,``1}},System.Nullable{System.Int32},System.Boolean,System.Linq.Expressions.Expression{System.Func{``1,System.IComparable}}[])">
+            <summary>
+            Clones this specification and computes the maximal value upon each of the <see cref="T:System.IComparable"/> <paramref name="properties"/> belonging to the <paramref name="parentProp"/>.
+            </summary>
+            <typeparam name="TParent"></typeparam>
+            <typeparam name="TChild"></typeparam>
+            <param name="parentProp">parent property</param>
+            <param name="propertySortOrder">The sort order of the first property values' computed result. NULL means no sort, 0 means default ascendant sort, less than zero means ABS(order) and ascendant sort, greater than zero means ABS(order) and descendant sort.</param>
+            <param name="includeAllPropsByDefault">Indicates if also to include all properties of all entities that do not contain any computed property in this query. Only computed properties are included by default, but you can include or exclude more properties of non-computed entity using <see cref="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.IncludeSelectProps``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}}[])"/> or <see cref="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.ExcludeSelectPropMasks(System.String[])"/>. You do not have to include primary key properties, they are included by default if you include some child property with computing function.</param>
+            <param name="properties">properties</param>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.MaxChild``2(System.Linq.Expressions.Expression{System.Func{``0,System.Collections.Generic.IEnumerable{``1}}},System.Nullable{System.Int32},System.Boolean,System.Linq.Expressions.Expression{System.Func{``1,System.IComparable}}[])">
+            <summary>
+            Clones this specification and computes the maximal value upon each of the <see cref="T:System.IComparable"/> <paramref name="properties"/> belonging to the <paramref name="parentProp"/>.
+            </summary>
+            <typeparam name="TParent"></typeparam>
+            <typeparam name="TChild"></typeparam>
+            <param name="parentProp">parent property</param>
+            <param name="propertySortOrder">The sort order of the first property values' computed result. NULL means no sort, 0 means default ascendant sort, less than zero means ABS(order) and ascendant sort, greater than zero means ABS(order) and descendant sort.</param>
+            /// <param name="includeAllPropsByDefault">Indicates if also to include all properties of all entities that do not contain any computed property in this query. Only computed properties are included by default, but you can include or exclude more properties of non-computed entity using <see cref="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.IncludeSelectProps``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}}[])"/> or <see cref="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.ExcludeSelectPropMasks(System.String[])"/>. You do not have to include primary key properties, they are included by default if you include some child property with computing function.</param>
+            <param name="properties">properties</param>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.Not">
+            <summary>
+            Returns a clone of this specification with a negated filter expression.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.NotIn(System.Linq.Expressions.Expression{System.Func{`0,System.IComparable}},KLO128.D3ORM.Common.Abstract.ISpecification,KLO128.D3ORM.Common.Abstract.LogicalOp,System.Int32)">
+            <summary>
+            Returns a clone of this specification that satisfies the <see cref="F:KLO128.D3ORM.Common.Abstract.ComparisonOp.NOT_IN"/> filter applied on the <paramref name="specification"/> accessed only from the <paramref name="leftSideFilterProp"/>.
+            </summary>
+            <param name="leftSideFilterProp">property to compare with the inner projection</param>
+            <param name="specification">The specification used in inner (IN/NOT_IN) projection. The specification query should return single column rows with the same type and meaning as <paramref name="leftSideFilterProp"/>.</param>
+            <param name="appendWithOp">The operator used for appending the filter.</param>
+            <param name="innerContextId">If '&lt; 0' then appends the <paramref name="specification"/> filter with a new generated <paramref name="innerContextId"/> else if '&gt; 0' sets the <paramref name="innerContextId"/> for the <paramref name="specification"/> filter as specified.</param>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.NotIn(KLO128.D3ORM.Common.Abstract.ISpecification,KLO128.D3ORM.Common.Abstract.LogicalOp,System.Int32)">
+            <summary>
+            Returns a clone of this specification that satisfies the <see cref="F:KLO128.D3ORM.Common.Abstract.ComparisonOp.NOT_IN"/> filter applied on the <paramref name="specification"/>.
+            </summary>
+            <param name="specification">The specification used in inner (IN/NOT_IN) projection.</param>
+            <param name="appendWithOp">The operator used for appending the filter.</param>
+            <param name="innerContextId">If '&lt; 0' then appends the <paramref name="specification"/> filter with a new generated <paramref name="innerContextId"/> else if '&gt; 0' sets the <paramref name="innerContextId"/> for the <paramref name="specification"/> filter as specified.</param>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.NotIn``2(System.Linq.Expressions.Expression{System.Func{`0,``0}},System.Linq.Expressions.Expression{System.Func{``0,``1}},``1[],KLO128.D3ORM.Common.Abstract.LogicalOp)">
+            <summary>
+            Returns a clone of this specification and appends the <paramref name="prop"/> and the <paramref name="array"/> with the <see cref="F:KLO128.D3ORM.Common.Abstract.ComparisonOp.NOT_IN"/> operator only for the <paramref name="prop"/> accessed from the <paramref name="directParentNavigationProp" />.
+            </summary>
+            <param name="directParentNavigationProp">If not null, specifies the parent property that will be used as a single reference access to the entity which contains the property to compare whether the value is IN/NOT_IN the <paramref name="array"/>.</param>
+            <param name="prop">The property to compare whether the value is IN/NOT_IN the <paramref name="array"/>.</param>
+            <param name="array">The array to test if does not contain the property value.</param>
+            <param name="appendWithOp">The operator used for appending the filter.</param>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.NotIn``1(System.Linq.Expressions.Expression{System.Func{`0,``0}},``0[],KLO128.D3ORM.Common.Abstract.LogicalOp)">
+            <summary>
+            Returns a clone of this specification and appends the <paramref name="prop"/> and the <paramref name="array"/> with the <see cref="F:KLO128.D3ORM.Common.Abstract.ComparisonOp.NOT_IN"/> operator.
+            </summary>
+            <param name="prop">The property to compare whether the value is IN/NOT_IN the <paramref name="array"/>.</param>
+            <param name="array">The array to test if does not contain the property value.</param>
+            <param name="appendWithOp">The operator used for appending the filter.</param>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.NotInFormat``1(System.Linq.Expressions.Expression{System.Func{`0,``0}},System.Linq.Expressions.Expression{System.Func{``0,System.IComparable}},System.Int32,KLO128.D3ORM.Common.Abstract.LogicalOp)">
+            <summary>
+            Returns a clone of this specification and appends the <paramref name="prop"/> and the <paramref name="placeholderIdx"/> with the <see cref="F:KLO128.D3ORM.Common.Abstract.ComparisonOp.NOT_IN"/> operator only for the <paramref name="prop"/> accessed from the <paramref name="directParentNavigationProp" />. (The <paramref name="placeholderIdx"/> must be substituted by an array.)
+            </summary>
+            <typeparam name="TChild"></typeparam>
+            <param name="directParentNavigationProp">If not null, specifies the parent property that will be used as a single reference access to the entity which contains the property to compare whether the value is IN/NOT_IN the substituted array.</param>
+            <param name="prop">The property to compare whether the value is IN/NOT_IN the substituted array.</param>
+            <param name="placeholderIdx">The index of the placeholder that will be substituted by an array parameter value.</param>
+            <param name="appendWithOp">The operator used for appending the filter.</param>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.NotInFormat(System.Linq.Expressions.Expression{System.Func{`0,System.IComparable}},System.Int32,KLO128.D3ORM.Common.Abstract.LogicalOp)">
+            <summary>
+            Returns a clone of this specification and appends the <paramref name="prop"/> and the <paramref name="placeholderIdx"/> with the <see cref="F:KLO128.D3ORM.Common.Abstract.ComparisonOp.NOT_IN"/> operator. (The <paramref name="placeholderIdx"/> must be substituted by an array.)
+            </summary>
+            <param name="prop">The property to compare whether the value is IN/NOT_IN the substituted array.</param>
+            <param name="placeholderIdx">The index of the placeholder that will be substituted by an array parameter value.</param>
+            <param name="appendWithOp">The operator used for appending the filter.</param>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.Or(KLO128.D3ORM.Common.Abstract.ISpecification)">
+            <summary>
+            Returns a clone of this specification concatenated with the <paramref name="specification"/> by logical OR. If this or that expression consists of 2 or more top context logical AND expressions then the expression is covered by parentheses.
+            </summary>
+            <param name="specification">query specification to append</param>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.OrderBy``1(System.Linq.Expressions.Expression{System.Func{`0,``0}},System.Linq.Expressions.Expression{System.Func{``0,System.IComparable}},System.Boolean,System.UInt32,System.Boolean)">
+            <summary>
+            Returns a clone of this specification and sorts the result list according to the <paramref name="prop"/> accessed only from the <paramref name="directParentNavigationProp" />.
+            </summary>
+            <typeparam name="TChild"></typeparam>
+            <param name="directParentNavigationProp">If not null, specifies the parent property that will be used as a single reference access to the entity which contains the property to sort by.</param>
+            <param name="prop">property to sort by</param>
+            <param name="desc">If true descending sort is used, otherwise ascending...</param>
+            <param name="sortOrder">The order (priority) of the column to sort by. The final sequence is totally free - not only 1,2,3... If you leave it zero, then the <paramref name="sortOrder"/> will be computed as 10 + the number of already assigned sort columns.</param>
+            <param name="replaceOldSortOrder">If true, the sort column is assigned to the sort context even if it is already assigned - the old <paramref name="sortOrder"/> is replaced by the new one. If false, the assignment is performed only if the sort column is not assigned to the sort context.</param>
+            <returns></returns>
+            <remarks>
+            For the case of using `AggCompute(..)`, you need to include all the non-computing properties into "select" you want to sort by!
+            </remarks>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.OrderBy(System.Linq.Expressions.Expression{System.Func{`0,System.IComparable}},System.Boolean,System.UInt32,System.Boolean)">
+            <summary>
+            Returns a clone of this specification and sorts the result list according to the <paramref name="prop"/>.
+            </summary>
+            <param name="prop">property to sort by</param>
+            <param name="desc">If true descending sort is used, otherwise ascending...</param>
+            <param name="sortOrder">The order (priority) of the column to sort by. The final sequence is totally free - not only 1,2,3... If you leave it zero, then the <paramref name="sortOrder"/> will be computed as 10 + the number of already assigned sort columns.</param>
+            <param name="replaceOldSortOrder">If true, the sort column is assigned to the sort context even if it is already assigned - the old <paramref name="sortOrder"/> is replaced by the new one. If false, the assignment is performed only if the sort column is not assigned to the sort context.</param>
+            <returns></returns>
+            <remarks>
+            For the case of using `AggCompute(..)`, you need to include all the non-computing properties into "select" you want to sort by!
+            </remarks>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.Sum(System.Nullable{System.Int32},System.Boolean,System.Linq.Expressions.Expression{System.Func{`0,System.IComparable}}[])">
+            <summary>
+            Clones this specification and computes the sum value upon each of the <see cref="T:System.IComparable"/> <paramref name="properties"/>.
+            </summary>
+            <param name="propertySortOrder">The sort order of the first property values' computed result. NULL means no sort, 0 means default ascendant sort, less than zero means ABS(order) and ascendant sort, greater than zero means ABS(order) and descendant sort.</param>
+            <param name="includeAllPropsByDefault">Indicates if also to include all properties of all entities that do not contain any computed property in this query. Only computed properties are included by default, but you can include or exclude more properties of non-computed entity using <see cref="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.IncludeSelectProps``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}}[])"/> or <see cref="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.ExcludeSelectPropMasks(System.String[])"/>. You do not have to include primary key properties, they are included by default if you include some child property with computing function.</param>
+            <param name="properties">properties</param>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.SumChild``2(System.Linq.Expressions.Expression{System.Func{``0,``1}},System.Nullable{System.Int32},System.Boolean,System.Linq.Expressions.Expression{System.Func{``1,System.IComparable}}[])">
+            <summary>
+            Clones this specification and computes the sum value upon each of the <see cref="T:System.IComparable"/> <paramref name="properties"/> belonging to the <paramref name="parentProp"/>.
+            </summary>
+            <typeparam name="TParent"></typeparam>
+            <typeparam name="TChild"></typeparam>
+            <param name="parentProp">parent property</param>
+            <param name="propertySortOrder">The sort order of the first property values' computed result. NULL means no sort, 0 means default ascendant sort, less than zero means ABS(order) and ascendant sort, greater than zero means ABS(order) and descendant sort.</param>
+            <param name="includeAllPropsByDefault">Indicates if also to include all properties of all entities that do not contain any computed property in this query. Only computed properties are included by default, but you can include or exclude more properties of non-computed entity using <see cref="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.IncludeSelectProps``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}}[])"/> or <see cref="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.ExcludeSelectPropMasks(System.String[])"/>. You do not have to include primary key properties, they are included by default if you include some child property with computing function.</param>
+            <param name="properties">properties</param>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.SumChild``2(System.Linq.Expressions.Expression{System.Func{``0,System.Collections.Generic.IEnumerable{``1}}},System.Nullable{System.Int32},System.Boolean,System.Linq.Expressions.Expression{System.Func{``1,System.IComparable}}[])">
+            <summary>
+            Clones this specification and computes the sum value upon each of the <see cref="T:System.IComparable"/> <paramref name="properties"/> belonging to the <paramref name="parentProp"/>.
+            </summary>
+            <typeparam name="TParent"></typeparam>
+            <typeparam name="TChild"></typeparam>
+            <param name="parentProp">parent property</param>
+            <param name="propertySortOrder">The sort order of the first property values' computed result. NULL means no sort, 0 means default ascendant sort, less than zero means ABS(order) and ascendant sort, greater than zero means ABS(order) and descendant sort.</param>
+            <param name="includeAllPropsByDefault">Indicates if also to include all properties of all entities that do not contain any computed property in this query. Only computed properties are included by default, but you can include or exclude more properties of non-computed entity using <see cref="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.IncludeSelectProps``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}}[])"/> or <see cref="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.ExcludeSelectPropMasks(System.String[])"/>. You do not have to include primary key properties, they are included by default if you include some child property with computing function.</param>
+            <param name="properties">properties</param>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.ISpecification`1.Union(KLO128.D3ORM.Common.Abstract.ISpecification,System.Boolean)">
+            <summary>
+            Clones this specification and merges it with the <paramref name="specification"/> which has to have the same number of columns and the same column types. Unions from a deeper context are forgotten!
+            </summary>
+            <param name="specification">query specification to append</param>
+            <param name="distinguishUnion">Specifies if to distinguish union by a distinct ROWID in the select. Only a single <paramref name="distinguishUnion"/> == true, over all the unions, generates ROWID select to all the sub-queries.</param>
+            <returns></returns>
+        </member>
+        <member name="T:KLO128.D3ORM.Common.Abstract.ISpecificationWithParams">
+            <summary>
+            <see cref="T:KLO128.D3ORM.Common.Abstract.ISpecification"/> Decorator Extended with Filter Parameters
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.Abstract.ISpecificationWithParams.Parameters">
+            <summary>
+            Filter Parameters
+            </summary>
+            <remarks>
+            Key := Filter Context's Placeholder Index<br/>
+            Value := Value
+            </remarks>
+        </member>
+        <member name="T:KLO128.D3ORM.Common.Abstract.ISpecificationWithParams`1">
+            <summary>
+            <see cref="T:KLO128.D3ORM.Common.Abstract.ISpecification`1"/> Decorator Extended with Filter Parameters
+            </summary>
+        </member>
+        <member name="F:KLO128.D3ORM.Common.Abstract.LogicalOp.NONE">
+            <summary>
+            No Operator
+            </summary>
+            <remarks>AND is used when appending a specification's filter by <see cref="T:KLO128.D3ORM.Common.Abstract.ISpecification`1"/>.Compare(..) or <see cref="T:KLO128.D3ORM.Common.Abstract.ISpecification`1"/>.CompareFormat(..) and NONE is set as an appendWithOp parameter</remarks>
+        </member>
+        <member name="F:KLO128.D3ORM.Common.Abstract.LogicalOp.AND">
+            <summary>
+            Logical AND Operator
+            </summary>
+        </member>
+        <member name="F:KLO128.D3ORM.Common.Abstract.LogicalOp.OR">
+            <summary>
+            Logical OR Operator
+            </summary>
+        </member>
+        <member name="F:KLO128.D3ORM.Common.Abstract.LogicalOp.DuplicitAnd">
+            <summary>
+            Duplicit references will be appended by the AND operator (OR is default).
+            </summary>
+        </member>
+        <member name="F:KLO128.D3ORM.Common.Abstract.LogicalOp.DuplicitOr">
+            <summary>
+            Duplicit references will be appended by the OR operator  - this is the default option (if no other duplicit operator set).
+            </summary>
+        </member>
+        <member name="T:KLO128.D3ORM.Common.Abstract.SerializableProperty">
+            <summary>
+            Serializable Holder of <see cref="T:System.Reflection.PropertyInfo"/>
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.Abstract.SerializableProperty.Name">
+            <summary>
+            Property Name
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.Abstract.SerializableProperty.PropertyType">
+            <summary>
+            Property Type
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.Abstract.SerializableProperty.DeclaringType">
+            <summary>
+            Declaring Type
+            </summary>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.SerializableProperty.GetPropertyInfo">
+            <summary>
+            Gets the <see cref="T:System.Reflection.PropertyInfo"/>.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Abstract.SerializableProperty.Equals(System.Object)">
+            <summary>
+            Returns true if types and name are the same.
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

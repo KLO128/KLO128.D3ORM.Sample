@@ -1,0 +1,2 @@
+﻿dotnet tool install --global dotnet-ef --version 6.0
+dotnet ef dbcontext scaffold "Data Source=PK-DESKTOP;Initial Catalog=D3ORMSample;Integrated Security=True" Microsoft.EntityFrameworkCore.SqlServer --startup-project ./KLO128.D3ORM.Sample.Infra.EFCore.MSSQL.Gen --project ./KLO128.D3ORM.Sample.Infra.EFCore.MSSQL.Gen -o ../KLO128.D3ORM.Sample.Infra.EFCore.MSSQL/Db -f --namespace KLO128.D3ORM.Sample.Infra.EFCore.MSSQL.Db -f

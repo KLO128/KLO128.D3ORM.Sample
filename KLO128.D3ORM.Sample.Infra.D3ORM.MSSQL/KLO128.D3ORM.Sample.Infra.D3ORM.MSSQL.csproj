@@ -1,0 +1,44 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\KLO128.D3ORM.Sample.Infra.D3ORM\KLO128.D3ORM.Sample.Infra.D3ORM.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="KLO128.D3ORM.Common">
+      <HintPath>..\Libs\KLO128.D3ORM.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="KLO128.D3ORM.Common.Abstract">
+      <HintPath>..\Libs\KLO128.D3ORM.Common.Abstract.dll</HintPath>
+    </Reference>
+    <Reference Include="KLO128.D3ORM.MSSQL">
+      <HintPath>..\Libs\KLO128.D3ORM.MSSQL.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="EntityPropMappings.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>EntityPropMappings.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="EntityPropMappings.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>EntityPropMappings.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+</Project>

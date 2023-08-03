@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\KLO128.D3ORM.Sample.Domain.Shared\KLO128.D3ORM.Sample.Domain.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="KLO128.D3ORM.Common.Abstract">
+      <HintPath>..\Libs\KLO128.D3ORM.Common.Abstract.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Models\EntityDTOs.tt">
+      <LastGenOutput>EntityDTOs.txt</LastGenOutput>
+      <Generator>TextTemplatingFileGenerator</Generator>
+    </None>
+    <None Update="Models\EntityDTOs.txt">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>EntityDTOs.tt</DependentUpon>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+</Project>

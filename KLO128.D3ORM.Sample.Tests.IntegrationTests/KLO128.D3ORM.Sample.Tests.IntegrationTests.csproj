@@ -1,0 +1,68 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="appSettings.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="6.0.14" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.11.0" />
+    <PackageReference Include="MSTest.TestAdapter" Version="2.2.7" />
+    <PackageReference Include="MSTest.TestFramework" Version="2.2.7" />
+    <PackageReference Include="coverlet.collector" Version="3.1.0" />
+    <PackageReference Include="MySql.Data" Version="8.0.29" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\KLO128.D3ORM.Sample.Application.Web\KLO128.D3ORM.Sample.Application.Web.csproj" />
+    <ProjectReference Include="..\KLO128.D3ORM.Sample.Domain\KLO128.D3ORM.Sample.Domain.csproj" />
+    <ProjectReference Include="..\KLO128.D3ORM.Sample.Infra.D3ORM.MSSQL\KLO128.D3ORM.Sample.Infra.D3ORM.MSSQL.csproj" />
+    <ProjectReference Include="..\KLO128.D3ORM.Sample.Infra.D3ORM.MySQL\KLO128.D3ORM.Sample.Infra.D3ORM.MySQL.csproj" />
+    <ProjectReference Include="..\KLO128.D3ORM.Sample.Infra.D3ORM.SQLite\KLO128.D3ORM.Sample.Infra.D3ORM.SQLite.csproj" />
+    <ProjectReference Include="..\KLO128.D3ORM.Sample.Infra.D3ORM\KLO128.D3ORM.Sample.Infra.D3ORM.csproj" />
+    <ProjectReference Include="..\KLO128.D3ORM.Sample.Tests\KLO128.D3ORM.Sample.Tests.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="KLO128.D3ORM.Common">
+      <HintPath>..\Libs\KLO128.D3ORM.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="KLO128.D3ORM.Common.Abstract">
+      <HintPath>..\Libs\KLO128.D3ORM.Common.Abstract.dll</HintPath>
+    </Reference>
+    <Reference Include="KLO128.D3ORM.MSSQL">
+      <HintPath>..\Libs\KLO128.D3ORM.MSSQL.dll</HintPath>
+    </Reference>
+    <Reference Include="KLO128.D3ORM.MySQL">
+      <HintPath>..\Libs\KLO128.D3ORM.MySQL.dll</HintPath>
+    </Reference>
+    <Reference Include="KLO128.D3ORM.SQLite">
+      <HintPath>..\Libs\KLO128.D3ORM.SQLite.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>

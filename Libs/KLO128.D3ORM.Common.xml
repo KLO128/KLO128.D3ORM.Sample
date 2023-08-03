@@ -1,0 +1,851 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>KLO128.D3ORM.Common</name>
+    </assembly>
+    <members>
+        <member name="P:KLO128.D3ORM.Common.D3BaseContext.DateFormat">
+            <summary>
+            Database System Date Format: yyyy-MM-dd is the default value.
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.D3BaseContext.DbIdColumnFormat">
+            <summary>
+            Name Format of Id Columns (Given from the Constructor).
+            </summary>
+            <remarks>i.e. {0}_id</remarks>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.D3BaseContext.DtoPatternFormat">
+            <summary>
+            DTO pattern supporting regular expression syntax. Must contain a placeholder for an entity name: {0}
+            </summary>
+            <remarks>i.e.: {0}DTO</remarks>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.D3BaseContext.EntityMappings">
+            <summary>
+            The dictionary (EntityType -> EntityMapping) for a quick indexed access to EntityMapping of each type. (Assigned from the constructor.)
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.D3BaseContext.EntityIdPropFormat">
+            <summary>
+            Name Format of Id Properties (Given from the Constructor).
+            </summary>
+            <remarks>i.e.: {0}Id</remarks>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.D3BaseContext.IdefStart">
+            <summary>
+            The start identifier character, typically: MySQL: ` or for MSSQL, SQLite: [
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.D3BaseContext.IdefEnd">
+            <summary>
+            The end identifier character, typically: MySQL: ` or for MSSQL, SQLite: ]
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.D3BaseSpecification.DtoType">
+            <summary>
+            DTO type of the top entity or NULL.
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.D3BaseSpecification.EntityType">
+            <summary>
+            The type of the query top entity.
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.D3BaseSpecification.InnerContextId">
+            <summary>
+            The Id of inner context expression as IN/NOT IN relation is used. The default value is 0. For all contexts of the query we use -1.
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.D3BaseSpecification.ThrowExceptionIfEmptyFilter">
+            <summary>
+            Indicates if to throw an exception if the specification's filter contains no items. The default value is true for D3BaseSpecification.
+            </summary>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.D3BaseSpecification.CloneUnsafe">
+            <summary>
+            Force cloning of this specification.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.D3BaseSpecification.CloneUnsafe(KLO128.D3ORM.Common.Models.QueryPart)">
+            <summary>
+            Forces cloning of this specification.
+            </summary>
+            <param name="queryPart"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.D3BaseSpecification.PreBuild">
+            <summary>
+            When overridden in a derived class, prebuilds the query (for SQL: select, join, filter and the sort part) to get the data faster, because the query is prepared - only the substitution of parameter arguments is needed. It also omits parameters with unassigned values from the filter.
+            </summary>
+        </member>
+        <member name="T:KLO128.D3ORM.Common.D3Specification">
+            <summary>
+            The tool for creating D3Specification instances, prebuilding specifications, building SQL, removing extra filter or sort etc...
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.D3Specification.ThrowWhenExpectedJoinNotSuccessful">
+            <summary>
+            Indicates if to throw an exception if a try of appending a join was not successful. True by default.
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.D3Specification.HelperInitialized">
+            <summary>
+            Indicates if the <see cref="P:KLO128.D3ORM.Common.D3Specification.SpecHelper"/> is initialized.
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.D3Specification.SpecHelper">
+            <summary>
+            DO NOT use externally. Internal static helper used to handle this tool functions. Instantiated with <see cref="T:KLO128.D3ORM.Common.ID3Context"/> instantiation.
+            </summary>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.D3Specification.Create``1(KLO128.D3ORM.Common.ID3Context,System.Boolean,System.Boolean)">
+            <summary>
+            Creates a new instance of <see cref="T:KLO128.D3ORM.Common.Abstract.ISpecification`1"/>.
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+            <param name="d3Context">D3Context</param>
+            <param name="forceInnerJoin">Specifies if this specification should be joined by INNER JOIN even if joined by nullable (optional) "many to one" relation, where LEFT JOIN is used obviously, or joined by "one to many" relation, where LEFT JOIN is also used.</param>
+            <param name="forceLeftJoin">Specifies if this specification should be joined by LEFT JOIN even if joined by non-nullable (required) "many to one" relation.</param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.D3Specification.Create``2(KLO128.D3ORM.Common.ID3Context,System.Linq.Expressions.Expression{System.Func{``1,``0}},System.Boolean,System.Boolean)">
+            <summary>
+            Creates a new instance of <see cref="T:KLO128.D3ORM.Common.Abstract.ISpecification`1"/> which is prepared to be appended to a parent specification only through the <paramref name="propToIncludeOnly"/> (in case of more references from a single table).
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+            <typeparam name="TParent"></typeparam>
+            <param name="d3Context">D3Context</param>
+            <param name="propToIncludeOnly">Sets <see cref="P:KLO128.D3ORM.Common.D3BaseSpecification.ParentPropToIncludeOnly"/> and the only reference that is related to the property is included.</param>
+            <param name="forceInnerJoin">Specifies if this specification should be joined by INNER JOIN even if joined by nullable (optional) relation, where LEFT JOIN is used obviously for "many to one" relation.</param>
+            <param name="forceLeftJoin">Specifies if this specification should be joined by LEFT JOIN even if joined by non-nullable (required) "many to one" relation.</param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.D3Specification.Create``2(KLO128.D3ORM.Common.ID3Context,System.Linq.Expressions.Expression{System.Func{``1,System.Collections.Generic.IEnumerable{``0}}},System.Linq.Expressions.Expression{System.Func{``0,System.IComparable}},System.Boolean,System.Boolean)">
+            <summary>
+            Creates a new instance of <see cref="T:KLO128.D3ORM.Common.Abstract.ISpecification`1"/> which must be on the very left side of future joining (this specification cannot be appended to some parent one). The query result should be selected as <see cref="T:System.Collections.Generic.List`1"/> The top query context is of type <typeparamref name="TInverseRoot"/>.
+            </summary>
+            <typeparam name="TInverseRoot"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <param name="d3Context">D3Context</param>
+            <param name="inverseRootCollection">one to many aggregation of the query root into the query result type</param>
+            <param name="inverseRootForeignKey">many to one aggregation foreign key of the query root referencing the query result type</param>
+            <param name="forceInnerJoin">Specifies if this specification should be joined by INNER JOIN even if joined by nullable (optional) relation, where LEFT JOIN is used obviously for "many to one" relation.</param>
+            <param name="forceLeftJoin">Specifies if this specification should be joined by LEFT JOIN even if joined by non-nullable (required) "many to one" relation.</param>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.D3Specification.BuildSQL(KLO128.D3ORM.Common.Abstract.ISpecification,System.Boolean,System.Boolean,System.Collections.Generic.IDictionary{System.Int32,System.Object})">
+            <summary>
+            Builds and gets the SQL using the <paramref name="parameters"/> for the filter.
+            </summary>
+            <param name="that">specification invoker</param>
+            <param name="useSkipAndTakeFormat">If true skip and take is included. It must be used with a combination of the extension `IDbConnection.AggSelect(..)` or `IDbConnection.AggCompute(..)` using skip and take instantiated.</param>
+            <param name="debugMode">If true, non-minimized query is generated for a debug purpose. If false, minimized query (with better performance) is generated for production purpose.</param>
+            <param name="parameters">filter parameters; key := placeholder index; value := value</param>
+            <remarks>
+            <paramref name="parameters"/>: Use null to omit the parameter at the specified order (placeholder index), use **Convert.DBNull** to compare it with database NULL.<br/>
+            Do not use DbParameter or <see cref="T:KLO128.D3ORM.Common.Abstract.D3Parameter"/>! Instead of that for the case of stored procedures, use D3ORM middleware repository that implements `ICommonRepository.ExecuteStoredSelect(..)` or (directly) `IDbConnection.AggSelect(..)` or `IDbConnection.AggCompute(..)` to select data from stored procedures...
+            </remarks>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.D3Specification.PreBuild``1(KLO128.D3ORM.Common.Abstract.ISpecification{``0})">
+            <summary>
+            Prebuilds the specification in order to cache SQL part strings for building a final query.
+            <param name="that">specification invoker</param>
+            </summary>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.D3Specification.RemoveFilterItems``2(KLO128.D3ORM.Common.Abstract.ISpecification{``0},System.Linq.Expressions.Expression{System.Func{``1,System.IComparable}})">
+            <summary>
+            Returns a new specification with cloned filter created from <paramref name="that"/> specification and removes all the filter items containing the specified <paramref name="filterProp"/>.
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+            <typeparam name="THolder"></typeparam>
+            <param name="that">specification invoker</param>
+            <param name="filterProp">The property of any context to exclude from the filter context. If more than 1 references leading to this property, the filter clearing will be applied for all references.</param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.D3Specification.RemoveSortItem``2(KLO128.D3ORM.Common.Abstract.ISpecification{``0},System.Linq.Expressions.Expression{System.Func{``1,System.IComparable}})">
+            <summary>
+            Returns a new specification with cloned sort context created from <paramref name="that"/> specification and removes all the sort items containing the specified <paramref name="sortProp"/>.
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+            <typeparam name="THolder"></typeparam>
+            <param name="that">specification invoker</param>
+            <param name="sortProp">The property of any context to exclude from the sort context.</param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Extensions.ComputeTypeExt.Shortcut(KLO128.D3ORM.Common.Abstract.ComputeType)">
+            <summary>
+            Returns AVG, CNT, MIN, MAX or SUM
+            </summary>
+            <param name="computeType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Extensions.ComputeTypeExt.AsFunction(KLO128.D3ORM.Common.Abstract.ComputeType)">
+            <summary>
+            Returns AVG, COUNT, MIN, MAX or SUM
+            </summary>
+            <param name="computeType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Extensions.ComputeTypeExt.AsComputeType(System.String)">
+            <summary>
+            Returns <see cref="T:KLO128.D3ORM.Common.Abstract.ComputeType" /> from the string.
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="T:KLO128.D3ORM.Common.Extensions.DataReadingExtensions">
+            <summary>
+            Extension class for executing aggregable queries.
+            </summary>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Extensions.DataReadingExtensions.AggCompute``2(System.Data.IDbConnection,KLO128.D3ORM.Common.ID3Context,System.Linq.Expressions.Expression{System.Func{``1,System.Collections.Generic.IEnumerable{``0}}},System.Linq.Expressions.Expression{System.Func{``0,``1}},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Data.CommandType,System.Collections.Generic.IEnumerable{System.Data.Common.DbParameter},System.Collections.Generic.List{System.String},System.Nullable{System.Int32})">
+            <summary>
+            Executes computing aggregation functions according to the <paramref name="cmdBatch"/>. (2 commands are generated from a specification if the skip and take option is used.) Returns a list of <typeparamref name="TResult"/> containing the property names and the structure specified by the <paramref name="cmdBatch"/>.
+            </summary>
+            <typeparam name="TEntityOrDTO"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <param name="connection">connection invoker</param>
+            <param name="d3Context">D3Context</param>
+            <param name="inverseRootCollection">one to many aggregation of the query root into the result root</param>
+            <param name="inverseRootDirectProperty">many to one aggregation of the query root into the result root</param>
+            <param name="cmdBatch">command string</param>
+            <param name="skip">the number of top entity (only) rows to skip from the start of the query result</param>
+            <param name="take">the number of top entity (only) rows to take from the result starting at the index following the last skipped row</param>
+            <param name="commandType">command type (text or stored procedure)</param>
+            <param name="spParameters">The parameters used for stored procedure ONLY.</param>
+            <param name="columnAsIdentifiers">The column identifiers can be analyzed from the specification and this parameter can be null in that case, but it has to be defined for stored procedures if stored procedure has no corresponding AS identifiers.</param>
+            <param name="commandTimeout">command timeout (If null, then the default timeout is used.)</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentException"></exception>
+            <remarks>
+            If you do not have a special <typeparamref name="TResult"/> type for this <paramref name="cmdBatch"/> result use <see cref="T:System.Object"/>. The result type will then be the Expando <see cref="T:System.Object"/> type, which is convertible into IDictionary&lt;string, object?&gt;.<br />
+            Properties with computing aggregate function have this format: SHORTCUT_PropertyName, shortcuts are: CNT, AVG, MIN, MAX, SUM.<br/>
+            It can be also used for stored procedures if you follow the column naming rules.
+            </remarks>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Extensions.DataReadingExtensions.AggCompute``1(System.Data.IDbConnection,KLO128.D3ORM.Common.ID3Context,KLO128.D3ORM.Common.Models.D3SQLAdapter,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Executes computing aggregation functions according to the <paramref name="sqlAdapter"/>. Returns a list of <typeparamref name="TResult"/> containing the property names and the structure specified by the <paramref name="sqlAdapter"/>.
+            </summary>
+            <typeparam name="TResult"></typeparam>
+            <param name="connection">connection invoker</param>
+            <param name="d3Context">D3Context</param>
+            <param name="sqlAdapter">built SQL query adapter</param>
+            <param name="skip">the number of top entity (only) rows to skip from the start of the query result</param>
+            <param name="take">the number of top entity (only) rows to take from the result starting at the index following the last skipped row</param>
+            <param name="commandTimeout">command timeout (If null, then the default timeout is used.)</param>
+            <exception cref="T:System.ArgumentException"></exception>
+            <returns></returns>
+            <remarks>
+            If you do not have a special <typeparamref name="TResult"/> type for this <paramref name="sqlAdapter"/> result use <see cref="T:System.Object"/>. The result type will then be the Expando <see cref="T:System.Object"/> type, which is convertible into IDictionary&lt;string, object?&gt;.<br />
+            Properties with computing aggregate function have this format: SHORTCUT_PropertyName, shortcuts are: CNT, AVG, MIN, MAX, SUM.
+            </remarks>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Extensions.DataReadingExtensions.AggSelect``2(System.Data.IDbConnection,KLO128.D3ORM.Common.ID3Context,System.Linq.Expressions.Expression{System.Func{``1,System.Collections.Generic.IEnumerable{``0}}},System.Linq.Expressions.Expression{System.Func{``0,``1}},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Data.CommandType,System.Collections.Generic.IEnumerable{System.Data.Common.DbParameter},System.Collections.Generic.List{System.String},System.Nullable{System.Int32})">
+            <summary>
+            Queries the database by the <paramref name="cmdBatch"/>. (2 commands are generated from a specification if the skip and take option is used.) Returns a full object tree (aggregated) list of <typeparamref name="TResult"/> as a result.
+            </summary>
+            <typeparam name="TEntityOrDTO"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <param name="connection">connection invoker</param>
+            <param name="d3Context">D3Context</param>
+            <param name="inverseRootCollection">one to many aggregation of the query root into the result root</param>
+            <param name="inverseRootDirectProperty">many to one aggregation of the query root into the result root</param>
+            <param name="cmdBatch">command string</param>
+            <param name="skip">the number of top entity (only) rows to skip from the start of the query result</param>
+            <param name="take">the number of top entity (only) rows to take from the result starting at the index following the last skipped row</param>
+            <param name="commandType">command type (text or stored procedure)</param>
+            <param name="spParameters">The parameters used for stored procedure ONLY.</param>
+            <param name="columnAsIdentifiers">The column identifiers can be analyzed from the specification and this parameter can be null in that case, but it has to be defined for stored procedures if stored procedure has no corresponding AS identifiers.</param>
+            <param name="commandTimeout">command timeout (If null, then the default timeout is used.)</param>
+            <returns></returns>
+            <exception cref="T:System.NotSupportedException">TableDirect is not supported option as a command type.</exception>
+            <remarks>Can be also used for stored procedures if you follow the column naming rules.</remarks>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Extensions.DataReadingExtensions.AggSelect``1(System.Data.IDbConnection,KLO128.D3ORM.Common.ID3Context,KLO128.D3ORM.Common.Models.D3SQLAdapter,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Queries the database by the <paramref name="sqlAdapter"/>. Returns a full object tree (aggregated) list of <typeparamref name="TResult"/> as a result.
+            </summary>
+            <typeparam name="TResult"></typeparam>
+            <param name="connection">connection invoker</param>
+            <param name="d3Context">D3Context</param>
+            <param name="sqlAdapter">built SQL query adapter</param>
+            <param name="skip">the number of top entity (only) rows to skip from the start of the query result</param>
+            <param name="take">the number of top entity (only) rows to take from the result starting at the index following the last skipped row</param>
+            <param name="commandTimeout">command timeout (If null, then the default timeout is used.)</param>
+            <returns></returns>
+        </member>
+        <member name="T:KLO128.D3ORM.Common.Extensions.DbConectionExtensions">
+            <summary>
+             Extension class for database actions excluding querying (data reading).
+            </summary>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Extensions.DbConectionExtensions.AttachTransaction(System.Data.IDbConnection,System.Data.IDbCommand)">
+            <summary>
+            Attaches connection's transaction to the <paramref name="cmd"/> if accessible. MSSQL requires it.
+            </summary>
+            <param name="connection">connection invoker</param>
+            <param name="cmd">command which the transaction will be attached to</param>
+            <remarks>This function is called inside in <see cref="T:System.Data.DataReaderExtensions"/>.AggCompute(..) and AggSelect(..).</remarks>
+            <remarks></remarks>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Extensions.DbConectionExtensions.ExecuteCommand(System.Data.IDbConnection,System.String,System.Nullable{System.Int32},System.String[])">
+            <summary>
+            Opens the <paramref name="connection"/> if not opened, creates a non-query command using <paramref name="cmdText"/> and <paramref name="formattedParameters"/>, executes the command and disposes the command.
+            </summary>
+            <param name="connection">connection invoker</param>
+            <param name="cmdText">command text</param>
+            <param name="commandTimeout">command timeout (If null, then the default timeout is used.)</param>
+            <param name="formattedParameters"></param>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Extensions.DbConectionExtensions.ExecuteDbStoredCommand(System.Data.IDbConnection,System.String,System.Collections.Generic.IEnumerable{System.Data.IDbDataParameter},System.Nullable{System.Int32})">
+            <summary>
+            Executes a command as a stored procedure using <paramref name="cmdText"/> and <paramref name="parameters"/>. The connection is opened if not have been and the command is disposed after finishing the work.
+            </summary>
+            <param name="connection">connection invoker</param>
+            <param name="cmdText">stored procedure name</param>
+            <param name="commandTimeout">command timeout (If null, then the default timeout is used.)</param>
+            <param name="parameters">stored procedure parameters</param>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Extensions.DbConectionExtensions.OpenIfNot(System.Data.IDbConnection)">
+            <summary>
+            Opens the <paramref name="connection"/> if not opened.
+            </summary>
+            <param name="connection">connection invoker</param>
+        </member>
+        <member name="T:KLO128.D3ORM.Common.Impl.D3AggRootRepository`1">
+            <summary>
+            Repository Middleware for Aggregate Root Entities
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+        </member>
+        <member name="T:KLO128.D3ORM.Common.Impl.D3CommonRepository`1">
+            <summary>
+            Shared Repository Middleware for Aggregate Root and Non-Aggregate Root Entities
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.Impl.D3CoreSpecification.AggContextMapper">
+            <summary>
+            Key := TreeKey,
+            Value := AggContext
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.Impl.D3CoreSpecification.FilterContextMapper">
+            <summary>
+            Key: Filter Context TreeKey
+            Value: FilterContext
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.Impl.D3CoreSpecification.ComputeSelectPropsSorted">
+            <summary>
+            Key := AggContext.TreeKey
+            Value := AggContext.TreeKey, entity.Property, computeType, includeInSelect
+            </summary>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Impl.D3Specification`1.AppendFilter(KLO128.D3ORM.Common.Impl.D3Specification{`0},System.Linq.Expressions.LambdaExpression,System.Linq.Expressions.LambdaExpression,KLO128.D3ORM.Common.Abstract.ComparisonOp,System.Object,KLO128.D3ORM.Common.Abstract.LogicalOp,System.Int32,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="that"></param>
+            <param name="parentExpression"></param>
+            <param name="propExpression"></param>
+            <param name="op"></param>
+            <param name="expression"></param>
+            <param name="appendWithOp"></param>
+            <param name="innerContextId">If '&lt;0' then appends a filter context or replaces all placeholder filter contexts everywhere; If '==0' then appends a filter context or replaces all placeholder filter contexts only in the top context; If '&gt;0' then appends a filter context or replaces all placeholder filter contexts only in context with id specified by <paramref name="innerContextId"/>.</param>
+            <param name="appendFormat"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Impl.Extensions.InternalExtensions.ExecuteCountRows(System.Data.IDbConnection,System.String,System.String[])">
+            <summary>
+            Executes a "count rows" command (works only if <paramref name="cmdText"/> query returns single integer value).
+            </summary>
+            <param name="connection">connection invoker</param>
+            <param name="cmdText">"count rows" command text </param>
+            <param name="parameters">command parameter values converted to string</param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.Impl.Models.AggregateContext.TemporalSelectTreeKey">
+            do not clone
+        </member>
+        <member name="P:KLO128.D3ORM.Common.Impl.Models.AggregateContext.JoinedToEntityPathTemporal">
+            do not clone
+        </member>
+        <member name="P:KLO128.D3ORM.Common.Impl.Models.AggregateContext.PushDownInJoinContextUnsafe">
+            <summary>
+            Do not set, risk of performance influence... Try to specify each join order by a query structure.
+            </summary>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.Impl.Models.ComputeObj.#ctor(System.String,System.Reflection.PropertyInfo,KLO128.D3ORM.Common.Abstract.ComputeType,System.Boolean,System.Nullable{KLO128.D3ORM.Common.Abstract.CrossColumnOp},System.Reflection.PropertyInfo,System.Reflection.PropertyInfo,System.Reflection.PropertyInfo,System.Boolean,System.Nullable{KLO128.D3ORM.Common.Abstract.CrossColumnOp},System.Reflection.PropertyInfo,System.Nullable{KLO128.D3ORM.Common.Abstract.CrossColumnOp},System.Reflection.PropertyInfo,System.Reflection.PropertyInfo,System.Reflection.PropertyInfo,System.Nullable{KLO128.D3ORM.Common.Abstract.CrossColumnOp},System.IComparable)">
+            <summary>
+            Custom Agg Compute Prop
+            </summary>
+            <param name="ComputeFuncCustomName"></param>
+            <param name="Property"></param>
+            <param name="ComputeType"></param>
+            <param name="IncludeInSelect"></param>
+            <param name="Op1"></param>
+            <param name="Property2"></param>
+            <param name="CaseWhen1or2ThenResult"></param>
+            <param name="CaseWhen1or2ElseResult"></param>
+            <param name="ParenthesesAfterProperty2"></param>
+            <param name="Op2"></param>
+            <param name="Property3"></param>
+            <param name="Op3"></param>
+            <param name="Property4"></param>
+            <param name="CaseWhen3or4ThenResult"></param>
+            <param name="CaseWhen3or4ElseResult"></param>
+            <param name="ConstantOp"></param>
+            <param name="ConstantOrPlaceholder"></param>
+        </member>
+        <member name="T:KLO128.D3ORM.Common.ID3Context">
+            <summary>
+            The interface that holds entity-database names and relation mappings, holds your naming conventions. So, it is also contains functions for retrieving entity/table names, property/column names and PropId/ColumnId names, relation infos of entity type... etc.
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.ID3Context.DatabaseType">
+            <summary>
+            The database system this context is created for.
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.ID3Context.DateFormat">
+            <summary>
+            Database System Date Format: yyyy-MM-dd is the default value.
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.ID3Context.DbIdColumnFormat">
+            <summary>
+            Name Format of Id Columns
+            </summary>
+            <remarks>i.e. {0}_id</remarks>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.ID3Context.DtoPatternFormat">
+            <summary>
+            DTO pattern supporting regular expression syntax. Must contain a placeholder for an entity name: {0}
+            </summary>
+            <remarks>i.e.: {0}DTO</remarks>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.ID3Context.EntityIdPropFormat">
+            <summary>
+            Name Format of Id Properties
+            </summary>
+            <remarks>i.e.: {0}Id</remarks>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.ID3Context.EntityMappings">
+            <summary>
+            The dictionary (EntityType -> EntityMapping) for a quick indexed access to EntityMapping of each type.
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.ID3Context.EntitiesNameSpace">
+            <summary>
+            The namespace of the Entities
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.ID3Context.ExceptionalDbColumnNames">
+            <summary>
+            Defines non-standard property -> column name mappings, which cannot be guessed.<br/>I.e.: GUIDExpirationDate would be converted from camel case into MySQL or Oracle name as: g_u_i_d_expiration_date.<br/>Important also for other DbSystems using camel case names if a column or table name is not the same as a property name.
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.ID3Context.IdefStart">
+            <summary>
+            The start identifier character, typically for MySQL: ` or for MSSQL, SQLite: [
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.ID3Context.IdefEnd">
+            <summary>
+            The end identifier character, typically for MySQL: ` or for MSSQL, SQLite: ]
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.ID3Context.NotEqualOperator">
+            <summary>
+            The target database not equal operator string - it differs across database systems: != or &lt;&gt;
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.ID3Context.NotFunction">
+            <summary>
+            Specifies NOT(condition) function name. If null then (condition) = 0 is used.
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.ID3Context.OtherModelNamespaces">
+            <summary>
+            Defines other namespaces (other than query root's namespace) where to find entity or DTO.
+            </summary>
+            <remarks>If the name of Entity or DTO is not unique and not placed in the same namespace as the query root, the instance of type from the first namespace found sequentially is made when resolving a query result.</remarks>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.ID3Context.UseAutoIncrement">
+            <summary>
+            Indicates if to skip populating of an id primary key property (if it is populated by itself in the database using the auto-increment principle).
+            </summary>
+            <remarks>true by default</remarks>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.ID3Context.UseFullIdOrderBy">
+            <summary>
+            Indicates if to include all primary keys into ORDER BY expression even if there are no other "many to one" or "one to many" sorts from a current "one to many" context select group till the end of the select.
+            </summary>
+            <remarks>
+            It can slightly influent the performance depending on a database system... MySQL D3Context's value is true by default.
+            </remarks>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.ID3Context.ConcatDbName(System.String,System.String,System.Boolean)">
+            <summary>
+            Concatenates the <paramref name="text"/> (usual usage: <paramref name="asPrefix"/> == true) to the database <paramref name="dbName"/> with persistence of naming conventions and identifier start-end quotes.
+            </summary>
+            <param name="dbName">original database name</param>
+            <param name="text">text to concatenate</param>
+            <param name="asPrefix">If true, the <paramref name="text"/> is inserted at the start of the <paramref name="dbName"/> after <see cref="P:KLO128.D3ORM.Common.ID3Context.IdefStart"/> character, otherwise the <paramref name="text"/> is inserted at the end of the <paramref name="dbName"/> before <see cref="P:KLO128.D3ORM.Common.ID3Context.IdefEnd"/> character.</param>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.ID3Context.ConvertsDbValue(System.Object,System.Type)">
+            <summary>
+            Converts the database <paramref name="value"/> into the target <paramref name="propertyType"/>.
+            </summary>
+            <param name="value">value to convert</param>
+            <param name="propertyType">target data type</param>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.ID3Context.CreateAnonymousConnection(System.Type,System.String)">
+            <summary>
+            Creates an anonymous connection outside of any IoC container - useful for asynchronous bulk operations, which needs to continue even if request ends.
+            </summary>
+            <param name="connectionType">The database connection type that implements IDbConnection.</param>
+            <param name="connectionString">database connection string</param>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.ID3Context.GetDbNameQuoted(System.String)">
+            <summary>
+            Gets a database name from the <paramref name="name"/> including <see cref="P:KLO128.D3ORM.Common.ID3Context.IdefStart"/> and <see cref="P:KLO128.D3ORM.Common.ID3Context.IdefEnd"/> chars.
+            </summary>
+            <param name="name">name of any kind</param>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.ID3Context.GetEntityNameFromDTO(System.String)">
+            <summary>
+            Gets the entity name from the <paramref name="dtoName"/>.
+            </summary>
+            <param name="dtoName">DTO name</param>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.ID3Context.GetIdPropName(System.String)">
+            <summary>
+            Gets the id property name from the <paramref name="entityName"/>.
+            </summary>
+            <param name="entityName">entity name</param>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.ID3Context.GetLastInsertedRowIdCommandText(System.String)">
+            <summary>
+            Retrieves a database script for obtaining the last inserted row id.
+            </summary>
+            <param name="entityName">entity name</param>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.ID3Context.IsEntityIdProp(System.String)">
+            <summary>
+            Determines if the <paramref name="propName"/> is an id like property name.
+            </summary>
+            <param name="propName">property name</param>
+            <returns></returns>
+        </member>
+        <member name="M:KLO128.D3ORM.Common.ID3Context.TryGetEntityNameFromIdProp(System.String)">
+            <summary>
+            If the <paramref name="propName"/> is id like, returns its entity name, otherwise returns null.
+            </summary>
+            <param name="propName">property name</param>
+            <returns></returns>
+        </member>
+        <member name="T:KLO128.D3ORM.Common.Messages">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.Messages.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.Messages.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.Messages.D3Error001">
+            <summary>
+              Looks up a localized string similar to D3Error-001 :: None of the entity types from the current context ({0}) can navigate to the right query entity type ({1}). Some of the context types must contain a &quot;many to one&quot; or &quot;one to many&quot; property of type or generic type: {1} and also it must be reflected in EntityPropMappings. Maybe switch the order of building the aggregates or redefine the aggregates and regenerate EntityPropMappings..
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.Messages.D3Error002">
+            <summary>
+              Looks up a localized string similar to D3Error-002 :: Left aggregate of type {0} that contains the property {1} was not included, yet. Please check correctness of your specification nesting. Left aggregates already included in the current context are: {2}.
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.Messages.D3Error003">
+            <summary>
+              Looks up a localized string similar to D3Error-003 :: No Entity Mapping found for the type: {0}. Have you generated EntityPropMappings.cs by EntityPropMappings.tt and included the generated file in ID3Context? Have you included the type {0} in Entities?.
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.Messages.D3Error004">
+            <summary>
+              Looks up a localized string similar to D3Error-004 :: Could not find an ID property in the entity: {0}. Please check if your D3Context.EntityIdPropFormat reflects your solution&apos;s id prop names and if the entity have one..
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.Messages.D3Error005">
+            <summary>
+              Looks up a localized string similar to D3Error-005 :: Could not find a property named {0} from the source entity {1} in the target entity: {2}. The source property name and the target property name should be the same to create an IN/NOT_IN comparison for a specification..
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.Messages.D3Error006">
+            <summary>
+              Looks up a localized string similar to D3Error-006 :: Could not find any property in the left context specification that leads to the entity: {0}. The source property name and the target property name should be the same to create an IN/NOT_IN comparison for a specification..
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.Messages.D3Error007">
+            <summary>
+              Looks up a localized string similar to D3Error-007 :: Invalid Specification Type: Expected derived type of {0}, got: {1}..
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.Messages.D3Error008">
+            <summary>
+              Looks up a localized string similar to D3Error-008 :: Invalid Member Expression: Expected: entity =&gt; entity.Prop, got: {0}. Property Name: {1}.
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.Messages.D3Error009">
+            <summary>
+              Looks up a localized string similar to D3Error-009 :: Could not find a specification according to the inner context id: {0}.
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.Messages.D3Error010">
+            <summary>
+              Looks up a localized string similar to D3Error-010 :: Cannot append the filter item {0}, because no context of declaring type {1} was found....
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.Messages.D3Error011">
+            <summary>
+              Looks up a localized string similar to D3Error-011 :: Invalid Type of D3Context.
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.Messages.D3Error012">
+            <summary>
+              Looks up a localized string similar to D3Error-012 :: Invalid Cross Column Operator: {0}.
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.Messages.D3Error014">
+            <summary>
+              Looks up a localized string similar to D3Error-014 :: D3Context must be initialized at least once before creating a specification, otherwise D3Specification.Create(..) helper will not work..
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.Messages.D3Error015">
+            <summary>
+              Looks up a localized string similar to D3Error-015 :: DTO Mapping Error: Invalid binding of DTO - missing the entity root id in DTO class {0}. Current Specification Entity Type: {1}. Are you sure, you are transferring the current entity type into a correct DTO type?.
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.Messages.D3Error016">
+            <summary>
+              Looks up a localized string similar to D3Error-016 :: DTO Mapping Error: Could not find a DTO equivalent to InverseRootCollectionProperty named {0}. Inversion Root Type: {1} Entity Type: {2}, DTO Type: {3}.
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.Messages.D3Error017">
+            <summary>
+              Looks up a localized string similar to D3Error-017 :: DTO Mapping Error: The query result DTO type not found for Inverse Root DTO. Inverse Root DTO must be constructed in the same way as its query result type. (with the same prefix and (or) suffix) ...Or you can define a direct (backward) navigation property in the query result type to avoid this problem. Inverse Root DTO Type: {0}, Expected Query Result Type: {1}.
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.Messages.D3Error020">
+            <summary>
+              Looks up a localized string similar to D3Error-020 :: DTO Mapping Error: Could not find the right DTO Type that would correspond to the inverse root property type. Please check your naming conventions... see also Queries documentation at d3orm.com. Property: {0}.{1}.
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.Messages.D3Error023">
+            <summary>
+              Looks up a localized string similar to D3Error-023 :: Current specification of type {0} has an empty filter... Set ISpecification.ThrowExceptionIfEmptyFilter to false for this specification if you want to skip this error..
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.Messages.D3Error030">
+            <summary>
+              Looks up a localized string similar to D3Error-030 :: Cannot specify skip without take and vice versa..
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.Messages.D3Error031">
+            <summary>
+              Looks up a localized string similar to D3Error-031 :: TableDirect is not supported option as a command type..
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.Messages.D3Error032">
+            <summary>
+              Looks up a localized string similar to D3Error-032 :: You have to define a stored procedure name, got null..
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.Messages.D3Error035">
+            <summary>
+              Looks up a localized string similar to D3Error-035 :: Could not find the declaring type {0} of the aggregated property {1}. It is probably not defined in the same namespace as the other entities or DTOs and also not defined in D3Context&apos;s OtherModelNamespaces, which is not supported..
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.Messages.D3Error040">
+            <summary>
+              Looks up a localized string similar to D3Error-040 :: The specification contains no avg, count, min, max, sum function..
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.Messages.D3Error050">
+            <summary>
+              Looks up a localized string similar to D3Error-050 :: Temporal connection of type {0} could not have been created..
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.Messages.D3Error051">
+            <summary>
+              Looks up a localized string similar to D3Error-051 :: EntityPropMappings.Dict is null or empty... Please generate it by EntityPropMappings.tt and include it in ID3Context!.
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.Messages.D3Error053">
+            <summary>
+              Looks up a localized string similar to D3Error-053 :: Invalid Id Format &apos;{0}&apos;: Expected permanent part at the beginning or at the end!.
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.Messages.D3Error056">
+            <summary>
+              Looks up a localized string similar to D3Error-056 :: DtoPattern should contain: {0}. Please check if you set ID3Context.DtoPatternFormat in an expected correct way..
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.Messages.D3Error060">
+            <summary>
+              Looks up a localized string similar to D3Error-060 :: Parameterized query needs parameters to be filled into SpecificationWithParams.
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.Messages.D3Error061">
+            <summary>
+              Looks up a localized string similar to D3Error-061 :: MySQL does not support bulk UPDATE or bulk DELETE operations on the same table specified in the filter FROM clause. We could not simplify the filter into just a single table, because the specification has join clause(s)..
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.Messages.D3Error062">
+            <summary>
+              Looks up a localized string similar to D3Error-062 :: Update failed, invalid expression or entity type: Entity: {0}, Expression: {1}.
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.Messages.D3Error063">
+            <summary>
+              Looks up a localized string similar to D3Error-063 :: SQL SELECT is not of type &apos;COUNT&apos;.
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.Messages.D3Error080">
+            <summary>
+              Looks up a localized string similar to D3Error-080 :: Internal Exception: Unknown Filter Context Type.
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.Messages.D3Error081">
+            <summary>
+              Looks up a localized string similar to D3Error-081 :: Internal Exception: Join Merge Error: Could not find merged parent tree key in the left context, so the tree key {0} will be skipped..
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.Messages.D3Error085">
+            <summary>
+              Looks up a localized string similar to D3Error-085 :: Internal Exception: FROM JOIN Not Built: Please call Flush for all queryBuilders..
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.Messages.D3Error086">
+            <summary>
+              Looks up a localized string similar to D3Error-086 :: Internal Exception: Table identifier not initialized for AggContext: {0}.
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.Models.D3Data.EntityContext.RowId">
+            <summary>
+            ROWID
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.Models.D3Data.EntityMapContext.ParentProp">
+            <summary>
+            The Property Name (In this case, the name of the navigation property to this entity.)
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.Models.D3SQLAdapter.FullSQL">
+            <summary>
+            Final SQL with Skip and Take Query
+            </summary>
+        </member>
+        <member name="P:KLO128.D3ORM.Common.Models.D3SQLAdapter.Parameters">
+            <summary>
+            Attached Parameters
+            </summary>
+        </member>
+        <member name="F:KLO128.D3ORM.Common.Models.Operator.NONE">
+            <summary>
+            No Operator
+            </summary>
+        </member>
+        <member name="F:KLO128.D3ORM.Common.Models.Operator.AND">
+            <summary>
+            Logical AND Operator
+            </summary>
+        </member>
+        <member name="F:KLO128.D3ORM.Common.Models.Operator.OR">
+            <summary>
+            Logical OR Operator
+            </summary>
+        </member>
+        <member name="F:KLO128.D3ORM.Common.Models.Operator.DuplicitAnd">
+            <summary>
+            Duplicit references will be appended by the AND operator (OR is default).
+            </summary>
+        </member>
+        <member name="F:KLO128.D3ORM.Common.Models.Operator.DuplicitOr">
+            <summary>
+            Duplicit references will be appended by the OR operator  - this is the default option (if other duplicit operator not set).
+            </summary>
+        </member>
+        <member name="F:KLO128.D3ORM.Common.Models.Operator.IN">
+            <summary>
+            Item IN Collection or IN Selection Operator
+            </summary>
+        </member>
+        <member name="F:KLO128.D3ORM.Common.Models.Operator.NOT_IN">
+            <summary>
+            Item NOT IN Collection or NOT IN Selection Operator
+            </summary>
+        </member>
+        <member name="F:KLO128.D3ORM.Common.Models.Operator.EQUALS">
+            <summary>
+            '=' Operator
+            </summary>
+        </member>
+        <member name="F:KLO128.D3ORM.Common.Models.Operator.NOT_EQUAL">
+            <summary>
+            '!=' or '&lt;&gt;' Operator (Depends on database system.)
+            </summary>
+        </member>
+        <member name="F:KLO128.D3ORM.Common.Models.Operator.GREATER_THAN">
+            <summary>
+            '&gt;' Operator
+            </summary>
+        </member>
+        <member name="F:KLO128.D3ORM.Common.Models.Operator.LESS_THAN">
+            <summary>
+            '&lt;' Operator
+            </summary>
+        </member>
+        <member name="F:KLO128.D3ORM.Common.Models.Operator.GREATER_THAN_OR_EQUAL">
+            <summary>
+            '&gt;=' Operator
+            </summary>
+        </member>
+        <member name="F:KLO128.D3ORM.Common.Models.Operator.LESS_THAN_OR_EQUAL">
+            <summary>
+            '&lt;=' Operator
+            </summary>
+        </member>
+        <member name="F:KLO128.D3ORM.Common.Models.Operator.LIKE">
+            <summary>
+            LIKE Operator
+            </summary>
+        </member>
+        <member name="F:KLO128.D3ORM.Common.Models.Operator.NOT_LIKE">
+            <summary>
+            NOT LIKE Operator
+            </summary>
+        </member>
+    </members>
+</doc>

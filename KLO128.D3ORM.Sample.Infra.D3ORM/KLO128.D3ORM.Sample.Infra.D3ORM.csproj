@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\KLO128.D3ORM.Sample.Domain\KLO128.D3ORM.Sample.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="KLO128.D3ORM.Common">
+      <HintPath>..\Libs\KLO128.D3ORM.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="KLO128.D3ORM.Common.Abstract">
+      <HintPath>..\Libs\KLO128.D3ORM.Common.Abstract.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

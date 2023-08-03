@@ -1,0 +1,75 @@
+﻿step in:> Address.cs
+	string *Date* -> DateTime *Date* at:         public DateTime LastChange { get; set; } = DateTime.UtcNow;
+	long -> int at:         public long? ChangedBy { get; set; }
+step in:> Match.cs
+	long -> int at:         public long TournamentPhase { get; set; }
+	string *Date* -> DateTime *Date* at:         public DateTime? MatchDate { get; set; }
+	string *Date* -> DateTime *Date* at:         public DateTime LastChange { get; set; } = DateTime.UtcNow;
+	long -> int at:         public long? ChangedBy { get; set; }
+step in:> MatchSetScore.cs
+	long -> int at:         public long HomeTeamScore { get; set; }
+	long -> int at:         public long AwayTeamScore { get; set; }
+	long -> int at:         public long SetOrder { get; set; }
+	string *Date* -> DateTime *Date* at:         public DateTime LastChange { get; set; } = DateTime.UtcNow;
+	long -> int at:         public long? ChangedBy { get; set; }
+step in:> PlayoffRoundCouple.cs
+	long -> int at:         public long PlayoffRound { get; set; }
+	long -> int at:         public long Team1Wins { get; set; }
+	long -> int at:         public long Team2Wins { get; set; }
+	string *Date* -> DateTime *Date* at:         public DateTime LastChange { get; set; } = DateTime.UtcNow;
+	long -> int at:         public long? ChangedBy { get; set; }
+step in:> Role.cs
+step in:> Team.cs
+	string *Date* -> DateTime *Date* at:         public DateTime RegistrationDate { get; set; }
+	long -> int at:         public long IsActive { get; set; }
+	string *Date* -> DateTime *Date* at:         public DateTime LastChange { get; set; } = DateTime.UtcNow;
+	long -> int at:         public long? ChangedBy { get; set; }
+step in:> TeamPlayer.cs
+	string *Date* -> DateTime *Date* at:         public DateTime LastChange { get; set; } = DateTime.UtcNow;
+	long -> int at:         public long? ChangedBy { get; set; }
+step in:> Tournament.cs
+	string *Date* -> DateTime *Date* at:         public DateTime StartDate { get; set; }
+	string *Date* -> DateTime *Date* at:         public DateTime EndDate { get; set; }
+	long -> int at:         public long? MaxNumOfTeams { get; set; }
+	string *Date* -> DateTime *Date* at:         public DateTime LastChange { get; set; } = DateTime.UtcNow;
+	long -> int at:         public long? ChangedBy { get; set; }
+step in:> TournamentPlayerStat.cs
+	long -> int at:         public long? TourPoints { get; set; }
+	long -> int at:         public long? AttackPoints { get; set; }
+	long -> int at:         public long? ServicePoints { get; set; }
+	long -> int at:         public long? ServicePercentage { get; set; }
+	long -> int at:         public long? UnforcedErrors { get; set; }
+	string *Date* -> DateTime *Date* at:         public DateTime LastChange { get; set; } = DateTime.UtcNow;
+	long -> int at:         public long? ChangedBy { get; set; }
+step in:> TournamentTeam.cs
+	string *Date* -> DateTime *Date* at:         public DateTime RegistrationDate { get; set; }
+	string *Date* -> DateTime *Date* at:         public DateTime LastChange { get; set; } = DateTime.UtcNow;
+	long -> int at:         public long? ChangedBy { get; set; }
+step in:> TournamentTeamStat.cs
+	long -> int at:         public long TournamentPhase { get; set; }
+	long -> int at:         public long PhasePoints { get; set; }
+	long -> int at:         public long Wins { get; set; }
+	long -> int at:         public long Losts { get; set; }
+	long -> int at:         public long Ties { get; set; }
+	long -> int at:         public long SetsWon { get; set; }
+	long -> int at:         public long SetsLost { get; set; }
+	long -> int at:         public long ScorePlus { get; set; }
+	long -> int at:         public long ScoreMinus { get; set; }
+	string *Date* -> DateTime *Date* at:         public DateTime LastChange { get; set; } = DateTime.UtcNow;
+	long -> int at:         public long? ChangedBy { get; set; }
+step in:> TourSerie.cs
+	string *Date* -> DateTime *Date* at:         public DateTime StartDate { get; set; }
+	string *Date* -> DateTime *Date* at:         public DateTime? EndDate { get; set; }
+	string *Date* -> DateTime *Date* at:         public DateTime LastChange { get; set; } = DateTime.UtcNow;
+	long -> int at:         public long? ChangedBy { get; set; }
+step in:> User.cs
+	string *Date* -> DateTime *Date* at:         public DateTime? LockoutEndDateUtc { get; set; }
+	long -> int at:         public long AccessFailedCount { get; set; }
+	string *Date* -> DateTime *Date* at:         public DateTime DateOfBirth { get; set; }
+	string *Date* -> DateTime *Date* at:         public DateTime RegistrationDate { get; set; }
+step in:> UserClaim.cs
+step in:> UserLogin.cs
+step in:> UserRole.cs
+	long -> int at:         public long IsActive { get; set; }
+//Entities fixed successfully!
+
